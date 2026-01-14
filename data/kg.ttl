@@ -3630,10 +3630,11 @@ ex:Gwaihir a ex:Character ;
     ex:language "Westron" ;
     ex:name "Gwaihir" ;
     ex:notablefor "helping rescue Beren and Lúthien; aiding Gandalf twice" ;
-    ex:othernames "The Windlord; ''Gwaehir''" ;
+    ex:othernames "''Gwaehir''" ;
     ex:parentage "Unknown; descendant of Thorondor" ;
     ex:people ex:Eagle ;
-    ex:siblings ex:Landroval .
+    ex:siblings ex:Landroval ;
+    ex:titles "Windlord" .
 
 ex:Hador a ex:Character ;
     rdfs:label "Hador" ;

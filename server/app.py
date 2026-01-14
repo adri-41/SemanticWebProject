@@ -1,20 +1,16 @@
 from flask import Flask, Response, request, render_template_string
-from rdflib import Graph, URIRef, RDFS, RDF
+from SPARQLWrapper import SPARQLWrapper, JSON, TURTLE
 
 app = Flask(__name__)
 
-# Chargement du KG
-g = Graph()
-g.parse("../data/kg.ttl", format="turtle")
-
+# -----------------------
+# Configuration
+# -----------------------
+SPARQL_ENDPOINT = "http://localhost:3030/tolkien/sparql"
 EX_NS = "https://example.org/resource/"
 
-# Propriétés à cacher
-HIDDEN_PROPERTIES = {
-    "label"
-}
+HIDDEN_PROPERTIES = {"label"}
 
-# Ordre d’affichage
 DISPLAY_ORDER = [
     "type",
     "name",
@@ -33,7 +29,6 @@ DISPLAY_ORDER = [
     "inverse_location"
 ]
 
-# Labels lisibles
 LABELS = {
     "type": "Type RDF",
     "name": "Nom",
@@ -53,56 +48,91 @@ LABELS = {
 }
 
 # -----------------------
+# Utilitaire SPARQL
+# -----------------------
+def sparql_query(query, return_format=JSON):
+    sparql = SPARQLWrapper(SPARQL_ENDPOINT)
+    sparql.setQuery(query)
+    sparql.setReturnFormat(return_format)
+    return sparql.query().convert()
+
+# -----------------------
 # Page d’accueil
 # -----------------------
 @app.route("/")
 def index():
-    characters = []
-    for s in g.subjects(RDFS.label, None):
-        if str(s).startswith(EX_NS):
-            label = g.value(subject=s, predicate=RDFS.label)
-            characters.append((s.split("/")[-1], str(label)))
+    query = """
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+    SELECT ?s ?label WHERE {
+      ?s rdfs:label ?label .
+      FILTER(STRSTARTS(STR(?s), "https://example.org/resource/"))
+    }
+    ORDER BY ?label
+    """
+
+    results = sparql_query(query)
 
     html = "<h1>Ressources du graphe</h1><ul>"
-    for name, label in sorted(characters):
+    for row in results["results"]["bindings"]:
+        uri = row["s"]["value"]
+        label = row["label"]["value"]
+        name = uri.split("/")[-1]
         html += f'<li><a href="/resource/{name}">{label}</a></li>'
     html += "</ul>"
 
     return render_template_string(html)
 
 # -----------------------
-# Fiche ressource
+# Fiche ressource Linked Data
 # -----------------------
 @app.route("/resource/<name>")
 def resource(name):
-    uri = URIRef(EX_NS + name)
+    uri = f"<{EX_NS}{name}>"
 
-    g_person = Graph()
-
-    # Triplets sortants
-    for s, p, o in g.triples((uri, None, None)):
-        g_person.add((s, p, o))
-
-    # Content negotiation : Turtle
+    # -------- Turtle (DESCRIBE) --------
     if "text/turtle" in request.headers.get("Accept", ""):
-        turtle = g_person.serialize(format="turtle")
+        sparql = SPARQLWrapper(SPARQL_ENDPOINT)
+        sparql.setQuery(f"DESCRIBE {uri}")
+        sparql.setReturnFormat(TURTLE)
+        turtle = sparql.query().convert()
         return Response(turtle, mimetype="text/turtle")
 
     props = {}
 
-    # Propriétés sortantes
-    for s, p, o in g_person:
-        key = str(p).split("/")[-1]
-        if key in HIDDEN_PROPERTIES:
+    # -------- Propriétés sortantes --------
+    query_out = f"""
+    SELECT ?p ?o WHERE {{
+      {uri} ?p ?o .
+    }}
+    """
+
+    results = sparql_query(query_out)
+
+    for row in results["results"]["bindings"]:
+        p = row["p"]["value"].split("/")[-1]
+        o = row["o"]["value"]
+
+        if p in HIDDEN_PROPERTIES:
             continue
-        props.setdefault(key, []).append(o)
 
-    # 🔹 Relations entrantes (clé pour éviter les pages vides)
-    for s, p, o in g.triples((None, None, uri)):
-        key = f"inverse_{str(p).split('/')[-1]}"
-        props.setdefault(key, []).append(s)
+        props.setdefault(p, []).append(o)
 
-    # HTML
+    # -------- Propriétés entrantes --------
+    query_in = f"""
+    SELECT ?s ?p WHERE {{
+      ?s ?p {uri} .
+    }}
+    """
+
+    results = sparql_query(query_in)
+
+    for row in results["results"]["bindings"]:
+        p = "inverse_" + row["p"]["value"].split("/")[-1]
+        s = row["s"]["value"]
+        props.setdefault(p, []).append(s)
+
+    # -------- HTML --------
     html = f"<h1>{name.replace('_', ' ')}</h1>"
     html += "<table border='1' cellpadding='5'>"
 
@@ -111,14 +141,14 @@ def resource(name):
             continue
 
         values = []
-        for o in props[key]:
-            if isinstance(o, URIRef) and str(o).startswith(EX_NS):
-                target = str(o).split("/")[-1]
+        for v in props[key]:
+            if v.startswith(EX_NS):
+                target = v.split("/")[-1]
                 values.append(
                     f'<a href="/resource/{target}">{target.replace("_", " ")}</a>'
                 )
             else:
-                values.append(str(o))
+                values.append(v)
 
         label = LABELS.get(key, key)
         html += f"""
@@ -130,13 +160,11 @@ def resource(name):
 
     html += "</table>"
 
-    # Lien Turtle
     html += f"""
     <p><b>RDF :</b>
     <a href="/resource/{name}" onclick="fetchTurtle(event)">
-        Télécharger Turtle
-    </a>
-    </p>
+        Voir Turtle
+    </a></p>
 
     <script>
     function fetchTurtle(e) {{
@@ -155,5 +183,8 @@ def resource(name):
 
     return render_template_string(html)
 
+# -----------------------
+# Lancement
+# -----------------------
 if __name__ == "__main__":
     app.run(debug=True)
