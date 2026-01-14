@@ -1,0 +1,80 @@
+@prefix ex: <https://example.org/resource/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# --------- Personnage (Character) ---------
+ex:CharacterShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Character ;
+
+    # nom obligatoire
+    sh:property [
+        sh:path ex:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+
+    # âge optionnel
+    sh:property [
+        sh:path ex:age ;
+        sh:datatype xsd:integer ;
+        sh:minCount 0 ;
+    ] ;
+
+    # genre optionnel
+    sh:property [
+        sh:path ex:gender ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+    ] ;
+
+    # relation famille
+    sh:property [
+        sh:path ex:family ;
+        sh:class ex:Family ;
+        sh:minCount 0 ;
+    ] ;
+
+    # enfants
+    sh:property [
+        sh:path ex:children ;
+        sh:class ex:Character ;
+        sh:minCount 0 ;
+    ] ;
+
+    # conjoint
+    sh:property [
+        sh:path ex:spouse ;
+        sh:class ex:Character ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # lieu
+    sh:property [
+        sh:path ex:location ;
+        sh:class ex:Place ;
+        sh:minCount 0 ;
+    ] .
+
+# --------- Lieu (Place) ---------
+ex:PlaceShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Place ;
+
+    sh:property [
+        sh:path ex:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+# --------- Famille (Family) ---------
+ex:FamilyShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Family ;
+
+    sh:property [
+        sh:path ex:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .

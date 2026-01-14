@@ -12,43 +12,39 @@ EX_NS = "https://example.org/resource/"
 HIDDEN_PROPERTIES = {"label"}
 
 DISPLAY_ORDER = [
-    "type",
-    "name",
-    "gender",
-    "age",
-    "position",
-    "people",
-    "family",
-    "parentage",
-    "siblings",
-    "spouse",
-    "children",
-    "location",
-    "inverse_people",
-    "inverse_family",
-    "inverse_location"
+    "type","name","gender","age","position","people","family","parentage",
+    "siblings","spouse","children","location",
+    "inverse_people","inverse_family","inverse_location"
 ]
 
-LABELS = {
-    "type": "Type RDF",
-    "name": "Nom",
-    "gender": "Genre",
-    "age": "Âge",
-    "position": "Fonction",
-    "people": "Peuple",
-    "family": "Famille",
-    "parentage": "Parents",
-    "siblings": "Fratrie",
-    "spouse": "Conjoint",
-    "children": "Enfants",
-    "location": "Lieu",
-    "inverse_people": "Personnages",
-    "inverse_family": "Membres",
-    "inverse_location": "Personnages associés"
+# -----------------------
+# Labels UI multilingues
+# -----------------------
+UI_LABELS = {
+    "en": {"language":"Language","type":"RDF type","name":"Name","gender":"Gender","age":"Age",
+           "position":"Position","people":"People","family":"Family","parentage":"Parents",
+           "siblings":"Siblings","spouse":"Spouse","children":"Children","location":"Location",
+           "inverse_people":"Characters","inverse_family":"Members",
+           "inverse_location":"Related characters","graph_resources":"Graph resources"},
+    "fr": {"language":"Langue","type":"Type RDF","name":"Nom","gender":"Genre","age":"Âge",
+           "position":"Fonction","people":"Peuple","family":"Famille","parentage":"Parents",
+           "siblings":"Fratrie","spouse":"Conjoint","children":"Enfants","location":"Lieu",
+           "inverse_people":"Personnages","inverse_family":"Membres",
+           "inverse_location":"Personnages associés","graph_resources":"Ressources du graphe"},
+    "de": {"language":"Sprache","type":"RDF-Typ","name":"Name","gender":"Geschlecht","age":"Alter",
+           "position":"Position","people":"Volk","family":"Familie","parentage":"Eltern",
+           "siblings":"Geschwister","spouse":"Ehepartner","children":"Kinder","location":"Ort",
+           "inverse_people":"Charaktere","inverse_family":"Mitglieder",
+           "inverse_location":"Zugehörige Charaktere","graph_resources":"Graph-Ressourcen"},
+    "es": {"language":"Idioma","type":"Tipo RDF","name":"Nombre","gender":"Género","age":"Edad",
+           "position":"Posición","people":"Pueblo","family":"Familia","parentage":"Padres",
+           "siblings":"Hermanos","spouse":"Cónyuge","children":"Hijos","location":"Lugar",
+           "inverse_people":"Personajes","inverse_family":"Miembros",
+           "inverse_location":"Personajes asociados","graph_resources":"Recursos del grafo"}
 }
 
 # -----------------------
-# Utilitaire SPARQL
+# SPARQL utilitaire
 # -----------------------
 def sparql_query(query, return_format=JSON):
     sparql = SPARQLWrapper(SPARQL_ENDPOINT)
@@ -56,130 +52,119 @@ def sparql_query(query, return_format=JSON):
     sparql.setReturnFormat(return_format)
     return sparql.query().convert()
 
+def get_label(uri, lang):
+    query = f"""
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    SELECT ?label WHERE {{
+      {{
+        <{uri}> rdfs:label ?label .
+        FILTER(LANG(?label) = "{lang}")
+      }}
+      UNION
+      {{
+        <{uri}> rdfs:label ?label .
+        FILTER(LANG(?label) = "en")
+      }}
+      UNION
+      {{
+        <{uri}> rdfs:label ?label .
+        FILTER(LANG(?label) = "")
+      }}
+    }}
+    LIMIT 1
+    """
+    res = sparql_query(query)
+
+    if res["results"]["bindings"]:
+        return res["results"]["bindings"][0]["label"]["value"]
+
+    # fallback FINAL : nom URI
+    return uri.split("/")[-1].replace("_", " ")
+
+
 # -----------------------
 # Page d’accueil
 # -----------------------
 @app.route("/")
 def index():
-    query = """
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    lang = request.args.get("lang", "en")
+    ui = UI_LABELS.get(lang, UI_LABELS["en"])
 
-    SELECT ?s ?label WHERE {
-      ?s rdfs:label ?label .
-      FILTER(STRSTARTS(STR(?s), "https://example.org/resource/"))
-    }
-    ORDER BY ?label
+    query = f"""
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    SELECT DISTINCT ?s WHERE {{
+      ?s rdfs:label ?l .
+      FILTER(STRSTARTS(STR(?s), "{EX_NS}"))
+    }}
     """
 
     results = sparql_query(query)
 
-    html = "<h1>Ressources du graphe</h1><ul>"
+    resources = []
     for row in results["results"]["bindings"]:
         uri = row["s"]["value"]
-        label = row["label"]["value"]
-        name = uri.split("/")[-1]
-        html += f'<li><a href="/resource/{name}">{label}</a></li>'
+        label = get_label(uri, lang)
+        resources.append((uri.split("/")[-1], label))
+
+    resources.sort(key=lambda x: x[1])
+
+    html = f"<h1>{ui['graph_resources']}</h1>"
+    html += f"<p><b>{ui['language']} :</b> "
+    html += f'<a href="?lang=en">EN</a> | <a href="?lang=fr">FR</a> | '
+    html += f'<a href="?lang=de">DE</a> | <a href="?lang=es">ES</a></p><ul>'
+
+    for name, label in resources:
+        html += f'<li><a href="/resource/{name}?lang={lang}">{label}</a></li>'
     html += "</ul>"
 
     return render_template_string(html)
 
 # -----------------------
-# Fiche ressource Linked Data
+# Fiche ressource
 # -----------------------
 @app.route("/resource/<name>")
 def resource(name):
-    uri = f"<{EX_NS}{name}>"
+    lang = request.args.get("lang", "en")
+    ui = UI_LABELS.get(lang, UI_LABELS["en"])
+    uri = f"{EX_NS}{name}"
 
-    # -------- Turtle (DESCRIBE) --------
     if "text/turtle" in request.headers.get("Accept", ""):
         sparql = SPARQLWrapper(SPARQL_ENDPOINT)
-        sparql.setQuery(f"DESCRIBE {uri}")
+        sparql.setQuery(f"DESCRIBE <{uri}>")
         sparql.setReturnFormat(TURTLE)
-        turtle = sparql.query().convert()
-        return Response(turtle, mimetype="text/turtle")
+        return Response(sparql.query().convert(), mimetype="text/turtle")
 
     props = {}
 
-    # -------- Propriétés sortantes --------
-    query_out = f"""
-    SELECT ?p ?o WHERE {{
-      {uri} ?p ?o .
-    }}
-    """
+    query_out = f"SELECT ?p ?o WHERE {{ <{uri}> ?p ?o }}"
+    for r in sparql_query(query_out)["results"]["bindings"]:
+        p = r["p"]["value"].split("/")[-1]
+        if p in HIDDEN_PROPERTIES: continue
+        props.setdefault(p, []).append(r["o"]["value"])
 
-    results = sparql_query(query_out)
+    query_in = f"SELECT ?s ?p WHERE {{ ?s ?p <{uri}> }}"
+    for r in sparql_query(query_in)["results"]["bindings"]:
+        p = "inverse_" + r["p"]["value"].split("/")[-1]
+        props.setdefault(p, []).append(r["s"]["value"])
 
-    for row in results["results"]["bindings"]:
-        p = row["p"]["value"].split("/")[-1]
-        o = row["o"]["value"]
+    title = get_label(uri, lang)
+    html = f"<h1>{title}</h1>"
+    html += f"<p>{ui['language']} : "
+    html += f'<a href="?lang=en">EN</a> | <a href="?lang=fr">FR</a> | '
+    html += f'<a href="?lang=de">DE</a> | <a href="?lang=es">ES</a></p>'
 
-        if p in HIDDEN_PROPERTIES:
-            continue
-
-        props.setdefault(p, []).append(o)
-
-    # -------- Propriétés entrantes --------
-    query_in = f"""
-    SELECT ?s ?p WHERE {{
-      ?s ?p {uri} .
-    }}
-    """
-
-    results = sparql_query(query_in)
-
-    for row in results["results"]["bindings"]:
-        p = "inverse_" + row["p"]["value"].split("/")[-1]
-        s = row["s"]["value"]
-        props.setdefault(p, []).append(s)
-
-    # -------- HTML --------
-    html = f"<h1>{name.replace('_', ' ')}</h1>"
     html += "<table border='1' cellpadding='5'>"
-
     for key in DISPLAY_ORDER:
-        if key not in props:
-            continue
-
+        if key not in props: continue
         values = []
         for v in props[key]:
             if v.startswith(EX_NS):
-                target = v.split("/")[-1]
-                values.append(
-                    f'<a href="/resource/{target}">{target.replace("_", " ")}</a>'
-                )
+                label = get_label(v, lang)
+                values.append(f'<a href="/resource/{v.split("/")[-1]}?lang={lang}">{label}</a>')
             else:
                 values.append(v)
-
-        label = LABELS.get(key, key)
-        html += f"""
-        <tr>
-            <th>{label}</th>
-            <td>{", ".join(values)}</td>
-        </tr>
-        """
-
+        html += f"<tr><th>{ui.get(key,key)}</th><td>{', '.join(values)}</td></tr>"
     html += "</table>"
-
-    html += f"""
-    <p><b>RDF :</b>
-    <a href="/resource/{name}" onclick="fetchTurtle(event)">
-        Voir Turtle
-    </a></p>
-
-    <script>
-    function fetchTurtle(e) {{
-        e.preventDefault();
-        fetch(window.location.href, {{
-            headers: {{'Accept': 'text/turtle'}}
-        }})
-        .then(r => r.text())
-        .then(t => {{
-            const w = window.open();
-            w.document.write('<pre>' + t + '</pre>');
-        }});
-    }}
-    </script>
-    """
 
     return render_template_string(html)
 

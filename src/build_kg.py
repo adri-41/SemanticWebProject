@@ -19,36 +19,28 @@ site = mwclient.Site(
 # Graphe RDF
 # -----------------------
 g = Graph()
-EX = Namespace("https://example.org/resource/")
+
+EX  = Namespace("https://example.org/resource/")
 DBO = Namespace("http://dbpedia.org/ontology/")
+DBR = Namespace("http://dbpedia.org/resource/")
 
 g.bind("ex", EX)
 g.bind("dbo", DBO)
+g.bind("dbr", DBR)
 g.bind("rdfs", RDFS)
 g.bind("owl", OWL)
 
 # -----------------------
 # Nettoyage du wikitext
 # -----------------------
-def extract_infobox(wikitext):
+def extract_infobox(wikitext, template_name="Infobox character"):
     wikicode = mwparserfromhell.parse(wikitext)
-
-    print("\nTEMPLATES TROUVÉS DANS LA PAGE :")
     for tpl in wikicode.filter_templates():
-        print("  -", repr(str(tpl.name)))
-
-    for tpl in wikicode.filter_templates():
-        tpl_name = tpl.name.strip().lower()
-        if "infobox" in tpl_name:
-            print("INFOBOX DÉTECTÉE :", repr(str(tpl.name)))
-            infobox = {
+        if tpl.name.matches(template_name):
+            return {
                 param.name.strip(): str(param.value).strip()
                 for param in tpl.params
             }
-            print("CONTENU INFOBOX BRUT :", infobox)
-            return infobox
-
-    print("AUCUNE INFOBOX DÉTECTÉE")
     return {}
 
 def remove_refs(text):
@@ -56,8 +48,7 @@ def remove_refs(text):
 
 def clean_wikilinks(text):
     def repl(match):
-        content = match.group(1)
-        return content.split("|")[-1]
+        return match.group(1).split("|")[-1]
     return re.sub(r"\[\[(.*?)\]\]", repl, text)
 
 def clean_dates(text):
@@ -89,123 +80,92 @@ def normalize_name(name):
 def name_to_uri(name):
     return EX[normalize_name(name)]
 
+def dbpedia_uri(name):
+    return DBR[normalize_name(name)]
+
 def page_exists(site, title):
     try:
         return site.pages[title].exists
     except:
         return False
 
-def add_multilingual_labels(graph, entity_uri, page):
-    """
-    Ajoute rdfs:label en anglais + toutes les langues disponibles
-    via les interlanguage links MediaWiki.
-    """
-
-    # Label anglais (toujours présent)
-    graph.add((
-        entity_uri,
-        RDFS.label,
-        Literal(page.name, lang="en")
-    ))
-
-    # Labels multilingues si disponibles
-    try:
-        for lang, title in page.langlinks():
-            graph.add((
-                entity_uri,
-                RDFS.label,
-                Literal(title, lang=lang)
-            ))
-    except Exception as e:
-        # Si le wiki ne fournit pas de langlinks
-        pass
-
-# Propriétés relationnelles
-LINK_PROPERTIES = {
-    "children", "parentage", "family", "location", "siblings", "spouse", "people"
-}
-
+# -----------------------
+# Mapping vers DBpedia
+# -----------------------
 PROPERTY_MAPPING = {
-    "family": DBO.family,
+    "family":   DBO.family,
     "location": DBO.location,
-    "spouse": DBO.spouse,
-    "people": DBO.ethnicGroup
+    "spouse":   DBO.spouse,
+    "people":   DBO.ethnicGroup,
+    "children": DBO.child,
+    "parentage": DBO.parent
 }
+
+LINK_PROPERTIES = set(PROPERTY_MAPPING.keys())
 
 ENTITY_TYPES = {
-    "people": DBO.EthnicGroup,
+    "people":   DBO.EthnicGroup,
     "location": DBO.Place,
-    "family": DBO.Family,
+    "family":   DBO.Family,
     "children": DBO.FictionalCharacter,
     "parentage": DBO.FictionalCharacter,
     "siblings": DBO.FictionalCharacter,
-    "spouse": DBO.FictionalCharacter
+    "spouse":   DBO.FictionalCharacter
 }
 
 # -----------------------
 # Construction du KG
 # -----------------------
 category = site.categories["Third Age characters"]
-MAX_PAGES = 50
 
-for i, page in enumerate(category):
-    if i >= MAX_PAGES:
-        break
-
-    print("\n" + "=" * 70)
-    print(f"PAGE : {page.name}")
-
-    try:
-        text = page.text()
-    except Exception as e:
-        print(f"ERREUR RÉCUPÉRATION PAGE : {e}")
-        time.sleep(5)
+for page in category:
+    text = page.text()
+    infobox = extract_infobox(text)
+    if not infobox:
         continue
 
-    infobox = extract_infobox(text)
-
-    if not infobox:
-        print(f"INFOBOX VIDE POUR {page.name}")
-
-    # Création entité
     char_uri = name_to_uri(page.name)
-    print("URI PERSONNAGE :", char_uri)
 
+    # Type DBpedia
     g.add((char_uri, RDF.type, DBO.FictionalCharacter))
-    add_multilingual_labels(g, char_uri, page)
 
-    dbpedia_uri = URIRef("http://dbpedia.org/resource/" + normalize_name(page.name))
-    g.add((char_uri, OWL.sameAs, dbpedia_uri))
+    # Label
+    g.add((
+        char_uri,
+        RDFS.label,
+        Literal(infobox.get("name", page.name), lang="en")
+    ))
 
-    if infobox:
-        for key, value in infobox.items():
-            print(f"\nCLÉ INFOBOX : {repr(key)}")
-            print(f"  VALEUR BRUTE : {repr(value)}")
+    # Alignement DBpedia
+    g.add((
+        char_uri,
+        OWL.sameAs,
+        dbpedia_uri(page.name)
+    ))
 
-            cleaned = clean_value(value)
-            print(f"  VALEUR NETTOYÉE : {repr(cleaned)}")
+    for key, value in infobox.items():
+        cleaned = clean_value(value)
+        if not cleaned:
+            continue
 
-            if not cleaned:
-                print("   IGNORÉE (vide après nettoyage)")
-                continue
+        prop_uri = PROPERTY_MAPPING.get(key, EX[key.replace(" ", "_")])
+        values = cleaned if isinstance(cleaned, list) else [cleaned]
 
-            prop_uri = PROPERTY_MAPPING.get(key, EX[key.replace(" ", "_")])
-            values = cleaned if isinstance(cleaned, list) else [cleaned]
+        for v in values:
+            if key in LINK_PROPERTIES and page_exists(site, v):
+                target_uri = name_to_uri(v)
 
-            for v in values:
-                if key in LINK_PROPERTIES:
-                    target_uri = name_to_uri(v)
-                    g.add((char_uri, prop_uri, target_uri))
+                g.add((char_uri, prop_uri, target_uri))
 
-                    if (target_uri, RDF.type, None) not in g:
-                        rdf_type = ENTITY_TYPES.get(key, EX.Resource)
-                        g.add((target_uri, RDF.type, rdf_type))
-                        g.add((target_uri, RDFS.label, Literal(v, lang="en")))
-                else:
-                    g.add((char_uri, prop_uri, Literal(v)))
+                if (target_uri, RDF.type, None) not in g:
+                    g.add((target_uri, RDF.type, ENTITY_TYPES.get(key, EX.Resource)))
+                    g.add((target_uri, RDFS.label, Literal(v, lang="en")))
+                    g.add((target_uri, OWL.sameAs, dbpedia_uri(v)))
 
-    print(f"FIN PAGE {page.name} — Triples actuels : {len(g)}")
-    time.sleep(3)
+            else:
+                g.add((char_uri, prop_uri, Literal(v)))
+
+    time.sleep(1)
 
 # -----------------------
 # Sauvegarde
@@ -215,4 +175,5 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 os.makedirs(DATA_DIR, exist_ok=True)
 
 g.serialize(os.path.join(DATA_DIR, "kg.ttl"), format="turtle")
-print("\nkg.ttl généré avec DEBUG COMPLET")
+
+print("✅ kg.ttl généré avec alignement DBpedia propre")
