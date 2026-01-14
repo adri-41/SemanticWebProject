@@ -3,60 +3,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ex:Adalbert_Bolger a dbo:FictionalCharacter ;
-    rdfs:label "Adalbert Bolger"@de,
-        "Adalbert Bolger"@en,
-        "Adalbert Bolger"@fi,
-        "encyclo/personnages/hobbits/bolger/adalbert bolger"@fr ;
-    dbo:ethnicGroup ex:Hobbit ;
-    dbo:family ex:Bolger ;
-    dbo:location ex:Budgeford ;
-    dbo:spouse ex:Gerda_Boffin ;
-    owl:sameAs <http://dbpedia.org/resource/Adalbert_Bolger> ;
-    ex:age "96" ;
-    ex:birth "1301" ;
-    ex:children ex:Filibert ;
-    ex:death "1397" ;
-    ex:gender "Male" ;
-    ex:name "Adalbert Bolger" ;
-    ex:parentage ex:Rudibert_Bolger_and_Amethyst_Hornblower .
-
-ex:Adalgar_Bolger a dbo:FictionalCharacter ;
-    rdfs:label "Adalgar Bolger"@de,
-        "Adalgar Bolger"@en,
-        "Adalgar Bolger"@fi,
-        "encyclo/personnages/hobbits/bolger/adalgar bolger"@fr ;
-    dbo:ethnicGroup ex:Hobbit ;
-    dbo:family ex:Bolger ;
-    dbo:location ex:Budgeford ;
-    owl:sameAs <http://dbpedia.org/resource/Adalgar_Bolger> ;
-    ex:age "99" ;
-    ex:birth "1215" ;
-    ex:children ex:Ruby,
-        ex:Rudibert,
-        ex:Rudigar ;
-    ex:death "1314" ;
-    ex:gender "Male" ;
-    ex:name "Adalgar Bolger" ;
-    ex:parentage ex:Gundahar_Bolger_and_Dina_Diggle ;
-    ex:siblings ex:Adaldrida_Bolger .
-
-ex:Adalgrim_Took a dbo:FictionalCharacter ;
-    rdfs:label "Adalgrim Tuk"@de,
-        "Adalgrim Took"@en,
-        "Adalgrim Tuk"@fi ;
-    dbo:ethnicGroup ex:Hobbit ;
-    dbo:family ex:Took ;
-    dbo:location ex:Great_Smials ;
-    owl:sameAs <http://dbpedia.org/resource/Adalgrim_Took> ;
-    ex:age "102" ;
-    ex:birth "1280" ;
-    ex:children ex:Paladin_and_Esmeralda ;
-    ex:death "1382" ;
-    ex:gender "Male" ;
-    ex:name "Adalgrim Took" ;
-    ex:parentage ex:Hildigrim_Took_and_Rosa_Baggins .
-
 ex:Adam_Hornblower a dbo:FictionalCharacter ;
     rdfs:label "Adam Hornblower"@en ;
     dbo:ethnicGroup ex:Hobbit ;
@@ -67,59 +13,60 @@ ex:Adam_Hornblower a dbo:FictionalCharacter ;
     ex:name "Adam Hornblower" ;
     ex:position "Smith<ref name=\"Shadow\"/>" .
 
-ex:Adamanta_Chubb a dbo:FictionalCharacter ;
-    rdfs:label "Adamanta Tuk"@de,
-        "Adamanta Chubb"@en,
-        "Dimantti Pönkeli"@fi,
-        "encyclo/personnages/hobbits/boulot/adamanta boulot"@fr ;
-    dbo:ethnicGroup ex:Hobbit ;
-    dbo:family ex:Chubb ;
-    dbo:location ex:Tookland ;
-    dbo:spouse ex:Old_Took ;
-    owl:sameAs <http://dbpedia.org/resource/Adamanta_Chubb> ;
-    ex:birth "Around 1190" ;
-    ex:caption "Adamanta Chubb - Detail by Miriam Ellis" ;
-    ex:children ex:Belladonna,
-        ex:Donnamira,
-        ex:Hildibrand,
-        ex:Hildifons,
-        ex:Hildigard,
-        ex:Hildigrim,
-        ex:Isembard,
-        ex:Isembold,
-        ex:Isengar,
-        ex:Isengrim_III,
-        ex:Isumbras_IV,
-        ex:Mirabella ;
-    ex:death "After 1262" ;
-    ex:gender "Female" ;
-    ex:image "Miriam Ellis - Adamanta Chubb.jpg" ;
-    ex:name "Adamanta Chubb" .
-
-ex:Adelard_Took a dbo:FictionalCharacter ;
-    rdfs:label "Adelard Tuk"@de,
-        "Adelard Took"@en,
-        "Adelard Tuk"@fi,
-        "encyclo/personnages/hobbits/touque/adelard touque"@fr ;
-    dbo:ethnicGroup ex:Hobbit ;
-    dbo:family ex:Took ;
-    owl:sameAs <http://dbpedia.org/resource/Adelard_Took> ;
-    ex:age "95" ;
-    ex:birth "1328" ;
-    ex:caption "Adelard Took from ''The Lord of the Rings Online''" ;
-    ex:children ex:2_daughters,
-        ex:Everard_Took,
-        ex:Reginard_Took ;
-    ex:death "1423" ;
+ex:Anar_dwarf a dbo:FictionalCharacter ;
+    rdfs:label "Anar"@en ;
+    dbo:ethnicGroup ex:Dwarf ;
+    owl:sameAs <http://dbpedia.org/resource/Anar_dwarf> ;
+    ex:birth "Third Age" ;
     ex:gender "Male" ;
-    ex:image "The Lord of the Rings Online - Adelard Took.jpg" ;
-    ex:name "Adelard Took" ;
-    ex:parentage ex:Flambard_Took .
+    ex:name "Anar" .
+
+ex:Anborn a dbo:FictionalCharacter ;
+    rdfs:label "Anborn"@en ;
+    dbo:ethnicGroup ex:Gondorian ;
+    dbo:location ex:Forbidden_Pool,
+        ex:Henneth_Annûn,
+        ex:Near_the_Harad_Road ;
+    owl:sameAs <http://dbpedia.org/resource/Anborn> ;
+    ex:affiliation "Rangers of Ithilien" ;
+    ex:birth "Late Third Age" ;
+    ex:caption "Anborn from The Lord of the Rings Trading Card Game" ;
+    ex:gender "Male" ;
+    ex:image "Decipher - Anborn.jpg" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Anborn" ;
+    ex:position "Scout<br>Archer" ;
+    ex:weapons "Bow" .
+
+ex:Angbor a dbo:FictionalCharacter ;
+    rdfs:label "Angbor"@en ;
+    dbo:ethnicGroup ex:Gondorian ;
+    dbo:location ex:Gondor,
+        ex:Lamedon ;
+    owl:sameAs <http://dbpedia.org/resource/Angbor> ;
+    ex:birth "Late Third Age" ;
+    ex:caption "\"Angbor of Lamedon\" by Jan Pospíšil" ;
+    ex:gender "Male" ;
+    ex:image "Jan Pospisil - Angbor of Lamedon.jpg" ;
+    ex:language "Westron" ;
+    ex:name "Angbor" ;
+    ex:othernames "\"the Fearless\"" ;
+    ex:titles "Lord of Lamedon" .
+
+ex:2_daughters a dbo:FictionalCharacter ;
+    rdfs:label "2 daughters"@en ;
+    ex:hasParent ex:Adelard_Took .
+
+ex:Adalbert a dbo:FictionalCharacter ;
+    rdfs:label "Adalbert"@en ;
+    ex:hasParent ex:Amethyst_Hornblower .
+
+ex:Adalgar a dbo:FictionalCharacter ;
+    rdfs:label "Adalgar"@en .
 
 ex:Adrahil_Captain_of_the_Left_Wing a dbo:FictionalCharacter ;
-    rdfs:label "Adrahil"@de,
-        "Adrahil (Captain of the Left Wing)"@en,
-        "Adrahil (sotapäällikkö)"@fi ;
+    rdfs:label "Adrahil"@en ;
     dbo:ethnicGroup ex:Gondorian ;
     dbo:location ex:Gondor ;
     owl:sameAs <http://dbpedia.org/resource/Adrahil_Captain_of_the_Left_Wing> ;
@@ -130,73 +77,8 @@ ex:Adrahil_Captain_of_the_Left_Wing a dbo:FictionalCharacter ;
     ex:name "Adrahil" ;
     ex:titles "Captain of the Left Wing" .
 
-ex:Aldamir a dbo:FictionalCharacter ;
-    rdfs:label "Aldamir"@de,
-        "Aldamir"@en,
-        "Aldamir"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/gondoriens/aldamir"@fr ;
-    dbo:ethnicGroup ex:Gondorian ;
-    dbo:location ex:Gondor ;
-    owl:sameAs <http://dbpedia.org/resource/Aldamir> ;
-    ex:age "210" ;
-    ex:birth "{{TA|1330}}" ;
-    ex:caption "\"Aldamir of Gondor\" by Matěj Čadil" ;
-    ex:children ex:Hyarmendacil_II ;
-    ex:death "{{TA|1540}}" ;
-    ex:gender "Male" ;
-    ex:image "Matěj_Čadil_-_Aldamir_of_Gondor.jpg" ;
-    ex:name "Aldamir" ;
-    ex:parentage ex:Eldacar ;
-    ex:rule "{{TA|1490}} - {{TA|1540|n}} (50 years)" ;
-    ex:siblings ex:Ornendil ;
-    ex:titles "King of Gondor" .
-
-ex:Aldor a dbo:FictionalCharacter ;
-    rdfs:label "Aldor der Alte"@de,
-        "Aldor"@en,
-        "Aldor"@fi,
-        "encyclo/personnages/hommes/3a/hommes du nord/rohirrim/aldor"@fr ;
-    dbo:ethnicGroup ex:Rohir ;
-    dbo:location ex:Rohan ;
-    owl:sameAs <http://dbpedia.org/resource/Aldor> ;
-    ex:birth "{{TA|2544}}" ;
-    ex:caption "\"The House of Eorl - Aldor the Old\" by Lída Holubová" ;
-    ex:children ex:Fréa,
-        ex:Three_unnamed_daughters ;
-    ex:death "{{TA|2645}} (aged 101)" ;
-    ex:gender "Male" ;
-    ex:house "House of Eorl" ;
-    ex:image "Lída Holubová - The House of Eorl - Aldor the Old.jpg" ;
-    ex:language "Rohanese and Westron" ;
-    ex:name "Aldor" ;
-    ex:othernames "\"the Old\"" ;
-    ex:parentage ex:Brego ;
-    ex:rule "{{TA|2570}} – {{TA|2645|n}} (75 years)" ;
-    ex:siblings ex:Baldor_and_Eofor ;
-    ex:titles "King of Rohan" .
-
-ex:Alfrida_of_the_Yale a dbo:FictionalCharacter ;
-    rdfs:label "Alfrida Bolger"@de,
-        "Alfrida of the Yale"@en,
-        "Alfrida Jeililäinen"@fi,
-        "encyclo/personnages/hobbits/du val/alfrida du val"@fr ;
-    dbo:ethnicGroup ex:Hobbit ;
-    dbo:location ex:The_YalebrBudgeford ;
-    dbo:spouse ex:Gundolpho_Bolger ;
-    owl:sameAs <http://dbpedia.org/resource/Alfrida_of_the_Yale> ;
-    ex:birth "c. 1131" ;
-    ex:children ex:Gundahad,
-        ex:Gundahar,
-        ex:Rudolph ;
-    ex:gender "Female" ;
-    ex:name "Alfrida" ;
-    ex:othernames "Alfrida Bolger" .
-
 ex:Alphros a dbo:FictionalCharacter ;
-    rdfs:label "Alphros"@de,
-        "Alphros"@en,
-        "Alphros"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/gondoriens/alphros"@fr ;
+    rdfs:label "Alphros"@en ;
     dbo:ethnicGroup ex:Gondorian ;
     dbo:location ex:Gondor ;
     owl:sameAs <http://dbpedia.org/resource/Alphros> ;
@@ -212,10 +94,7 @@ ex:Alphros a dbo:FictionalCharacter ;
     ex:titles "Prince of Dol Amroth" .
 
 ex:Amaranth_Brandybuck a dbo:FictionalCharacter ;
-    rdfs:label "Amaranth Brandybock"@de,
-        "Amaranth Brandybuck"@en,
-        "Amaranth Rankkibuk"@fi,
-        "encyclo/personnages/hobbits/brandebouc/amaranthe brandebouc"@fr ;
+    rdfs:label "Amaranth Brandybuck"@en ;
     dbo:ethnicGroup ex:Hobbit ;
     dbo:family ex:Brandybuck ;
     dbo:location ex:Buckland ;
@@ -233,77 +112,12 @@ ex:Amaranth_Brandybuck a dbo:FictionalCharacter ;
         ex:Rorimac,
         ex:Saradas .
 
-ex:Amethyst_Hornblower a dbo:FictionalCharacter ;
-    rdfs:label "Amethyst Bolger"@de,
-        "Amethyst Hornblower"@en,
-        "Ametisti Piipari"@fi ;
-    dbo:ethnicGroup ex:Hobbit ;
-    dbo:family ex:Hornblower ;
-    dbo:location ex:Budgeford ;
-    dbo:spouse ex:Rudibert_Bolger ;
-    owl:sameAs <http://dbpedia.org/resource/Amethyst_Hornblower> ;
-    ex:birth "c. 1260" ;
-    ex:children ex:Adalbert ;
-    ex:gender "Female" ;
-    ex:name "Amethyst Hornblower" ;
-    ex:othernames "Amethyst Bolger" .
-
-ex:Amlaith a dbo:FictionalCharacter ;
-    rdfs:label "Amlaith"@de,
-        "Amlaith"@en,
-        "Amlaith"@fi ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Arthedain ;
-    owl:sameAs <http://dbpedia.org/resource/Amlaith> ;
-    ex:age "220" ;
-    ex:birth "{{TA|726}}" ;
-    ex:caption "\"Amlaith",
-        "king of Arthedain\" by ElfinFen" ;
-    ex:children ex:Beleg ;
-    ex:death "{{TA|946}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:image "ElfinFen - Amlaith",
-        "king of Arthedain.jpg" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Amlaith" ;
-    ex:parentage ex:Eärendur ;
-    ex:rule "{{TA|861}} - {{TA|946|n}}" ;
-    ex:siblings ex:two_unnamed_brothers ;
-    ex:titles "King of Arthedain" .
-
-ex:Amroth a dbo:FictionalCharacter ;
-    rdfs:label "Amroth"@de,
-        "Amroth"@en,
-        "Amroth"@fi,
-        "encyclo/personnages/elfes/teleri/sindar/amroth"@fr ;
-    dbo:ethnicGroup ex:Sinda ;
-    dbo:location ex:Edhellond,
-        ex:Lothlórien ;
-    dbo:spouse ex:Nimrodel_betrothed ;
-    owl:sameAs <http://dbpedia.org/resource/Amroth> ;
-    ex:age "4",
-        "685+" ;
-    ex:birth "Before c. {{SA|730}}" ;
-    ex:caption "\"Amroth\" by Olga Kukhtenkova" ;
-    ex:death "{{TA|1981}}" ;
-    ex:deathlocation "Bay of Belfalas" ;
-    ex:gender "Male" ;
-    ex:hair "Bright<ref name=amroth/>" ;
-    ex:image "Olga Kukhtenkova - Amroth.jpg" ;
-    ex:language "Silvan Elvish",
-        "Sindarin" ;
-    ex:name "Amroth" ;
-    ex:parentage ex:Amdír ;
-    ex:rule "{{SA|3434}} - {{TA|1981}}" ;
-    ex:titles "King of Lórien" .
+ex:Amdír a dbo:FictionalCharacter ;
+    rdfs:label "Amdír"@en ;
+    ex:hasChild ex:Amroth .
 
 ex:Amrothos a dbo:FictionalCharacter ;
-    rdfs:label "Amrothos"@de,
-        "Amrothos"@en,
-        "Amrothos"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/gondoriens/amrothos"@fr ;
+    rdfs:label "Amrothos"@en ;
     dbo:ethnicGroup ex:Gondorian ;
     dbo:location ex:Gondor ;
     owl:sameAs <http://dbpedia.org/resource/Amrothos> ;
@@ -317,61 +131,8 @@ ex:Amrothos a dbo:FictionalCharacter ;
         ex:Erchirion,
         ex:Lothíriel .
 
-ex:Anar_dwarf a dbo:FictionalCharacter ;
-    rdfs:label "Anar (dwarf)"@en ;
-    dbo:ethnicGroup ex:Dwarf ;
-    owl:sameAs <http://dbpedia.org/resource/Anar_dwarf> ;
-    ex:birth "Third Age" ;
-    ex:gender "Male" ;
-    ex:name "Anar" .
-
-ex:Anardil_King_of_Gondor a dbo:FictionalCharacter ;
-    rdfs:label "Anardil (König von Gondor)"@de,
-        "Anardil (King of Gondor)"@en,
-        "Anardil (Gondor)"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/gondoriens/anardil"@fr ;
-    dbo:ethnicGroup ex:Gondorian ;
-    dbo:location ex:Gondor ;
-    owl:sameAs <http://dbpedia.org/resource/Anardil_King_of_Gondor> ;
-    ex:age "275" ;
-    ex:birth "{{TA|136}}" ;
-    ex:caption "\"Anardil of Gondor\" by Matěj Čadil" ;
-    ex:children ex:Ostoher ;
-    ex:death "{{TA|411}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Anárion" ;
-    ex:image "Matěj Čadil - Anardil of Gondor.jpg" ;
-    ex:language "Westron and Sindarin" ;
-    ex:name "Anardil" ;
-    ex:parentage ex:Eärendil ;
-    ex:rule "{{TA|324}} - {{TA|411}} (87 years)" ;
-    ex:titles "King of Gondor" .
-
-ex:Anborn a dbo:FictionalCharacter ;
-    rdfs:label "Anborn"@de,
-        "Anborn"@en,
-        "Anborn"@fi ;
-    dbo:ethnicGroup ex:Gondorian ;
-    dbo:location ex:Forbidden_Pool,
-        ex:Henneth_Annûn,
-        ex:Near_the_Harad_Road ;
-    owl:sameAs <http://dbpedia.org/resource/Anborn> ;
-    ex:affiliation "Rangers of Ithilien" ;
-    ex:birth "Late Third Age" ;
-    ex:caption "Anborn from The Lord of the Rings Trading Card Game" ;
-    ex:gender "Male" ;
-    ex:image "Decipher - Anborn.jpg" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Anborn" ;
-    ex:position "Scout<br>Archer" ;
-    ex:weapons "Bow" .
-
 ex:Angamaitë a dbo:FictionalCharacter ;
-    rdfs:label "Angamaite"@de,
-        "Angamaitë"@en,
-        "Angamaitë (ihminen)"@fi,
-        "encyclo:personnages:hommes:3a:dunedain:angamaite"@fr ;
+    rdfs:label "Angamaitë"@en ;
     dbo:ethnicGroup ex:Gondorian ;
     dbo:location ex:Umbar ;
     owl:sameAs <http://dbpedia.org/resource/Angamaitë> ;
@@ -385,28 +146,8 @@ ex:Angamaitë a dbo:FictionalCharacter ;
     ex:pronun "Q",
         "{{IPA|[ˌaŋɡaˈma͡ɪtɛ]}}" .
 
-ex:Angbor a dbo:FictionalCharacter ;
-    rdfs:label "Angbor"@de,
-        "Angbor"@en,
-        "Angbor"@fi ;
-    dbo:ethnicGroup ex:Gondorian ;
-    dbo:location ex:Gondor,
-        ex:Lamedon ;
-    owl:sameAs <http://dbpedia.org/resource/Angbor> ;
-    ex:birth "Late Third Age" ;
-    ex:caption "\"Angbor of Lamedon\" by Jan Pospíšil" ;
-    ex:gender "Male" ;
-    ex:image "Jan Pospisil - Angbor of Lamedon.jpg" ;
-    ex:language "Westron" ;
-    ex:name "Angbor" ;
-    ex:othernames "\"the Fearless\"" ;
-    ex:titles "Lord of Lamedon" .
-
 ex:Angelica_Baggins a dbo:FictionalCharacter ;
-    rdfs:label "Angelica Beutlin"@de,
-        "Angelica Baggins"@en,
-        "Angelica Reppuli"@fi,
-        "encyclo:personnages:hobbits:sacquet:angelica sacquet"@fr ;
+    rdfs:label "Angelica Baggins"@en ;
     dbo:ethnicGroup ex:Hobbit ;
     dbo:family ex:Baggins ;
     dbo:location ex:The_Shire ;
@@ -418,52 +159,11 @@ ex:Angelica_Baggins a dbo:FictionalCharacter ;
     ex:name "Angelica Baggins" ;
     ex:parentage ex:Ponto_Baggins .
 
-ex:Arantar a dbo:FictionalCharacter ;
-    rdfs:label "Arantar"@de,
-        "Arantar"@en,
-        "Arantar"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/arantar"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Annúminas ;
-    owl:sameAs <http://dbpedia.org/resource/Arantar> ;
-    ex:age "250" ;
-    ex:birth "{{TA|185}}" ;
-    ex:children ex:Tarcil ;
-    ex:death "{{TA|435}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin" ;
-    ex:name "Arantar" ;
-    ex:parentage ex:Eldacar ;
-    ex:rule "{{TA|339}} - {{TA|435|n}}" ;
-    ex:titles "King of Arnor" .
-
-ex:Araphor a dbo:FictionalCharacter ;
-    rdfs:label "Araphor"@de,
-        "Araphor"@en,
-        "Araphor"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/araphor"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Arthedain ;
-    owl:sameAs <http://dbpedia.org/resource/Araphor> ;
-    ex:age "198" ;
-    ex:birth "{{TA|1391}}" ;
-    ex:children ex:Argeleb_II ;
-    ex:death "{{TA|1589}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Araphor" ;
-    ex:parentage ex:Arveleg_I ;
-    ex:rule "{{TA|1409}} - {{TA|1589|n}}" ;
-    ex:titles "King of Arthedain" .
+ex:Annúminas a dbo:Place ;
+    rdfs:label "Annúminas"@en .
 
 ex:Aratan a dbo:FictionalCharacter ;
-    rdfs:label "Aratan"@de,
-        "Aratan"@en,
-        "Aratan"@fi,
-        "encyclo/personnages/hommes/2a/numenoreens/aratan"@fr ;
+    rdfs:label "Aratan"@en ;
     dbo:ethnicGroup ex:Arnorian ;
     dbo:location ex:Gondor ;
     owl:sameAs <http://dbpedia.org/resource/Aratan> ;
@@ -486,11 +186,568 @@ ex:Aratan a dbo:FictionalCharacter ;
         ex:Elendur,
         ex:Valandil .
 
+ex:Arathorn_II_fatherbrGilraen_motherbrElrond_foster_father a dbo:FictionalCharacter ;
+    rdfs:label "Arathorn II (father)<br/>Gilraen (mother)<br/>Elrond (foster father)"@en ;
+    ex:hasChild ex:Aragorn .
+
+ex:Argeleb_II a dbo:FictionalCharacter ;
+    rdfs:label "Argeleb II"@en ;
+    ex:hasParent ex:Araphor .
+
+ex:Argonui a dbo:FictionalCharacter ;
+    rdfs:label "Argonui"@en ;
+    ex:hasChild ex:Arador .
+
+ex:Argonuibr_Probably_at_least_one_other_childsupNBsup a dbo:FictionalCharacter ;
+    rdfs:label "Argonui<br />''Probably'' at least one other child<sup>NB</sup>"@en ;
+    ex:hasParent ex:Arathorn_I .
+
+ex:Arvedui a dbo:FictionalCharacter ;
+    rdfs:label "Arvedui"@en ;
+    ex:hasParent ex:Araphant .
+
+ex:Arvedui_and_Fíriel a dbo:FictionalCharacter ;
+    rdfs:label "Arvedui and Fíriel"@en ;
+    ex:hasChild ex:Aranarth .
+
+ex:Arveleg_II a dbo:FictionalCharacter ;
+    rdfs:label "Arveleg II"@en ;
+    ex:hasChild ex:Araval .
+
+ex:Arwen a dbo:FictionalCharacter ;
+    rdfs:label "Arwen"@en ;
+    ex:hasSpouse ex:Aragorn .
+
+ex:Asphodel a dbo:FictionalCharacter ;
+    rdfs:label "Asphodel"@en .
+
+ex:At_least_one_sibling a dbo:FictionalCharacter ;
+    rdfs:label "At least one sibling"@en .
+
+ex:At_least_one_younger_brother a dbo:FictionalCharacter ;
+    rdfs:label "At least one younger brother"@en .
+
+ex:Baggins a dbo:Family ;
+    rdfs:label "Baggins"@en .
+
+ex:Baldor_and_Eofor a dbo:FictionalCharacter ;
+    rdfs:label "Baldor and Eofor"@en .
+
+ex:Beleg a dbo:FictionalCharacter ;
+    rdfs:label "Beleg"@en ;
+    ex:hasParent ex:Amlaith .
+
+ex:Belladonna a dbo:FictionalCharacter ;
+    rdfs:label "Belladonna"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Brandybuck a dbo:Family ;
+    rdfs:label "Brandybuck"@en .
+
+ex:Brego a dbo:FictionalCharacter ;
+    rdfs:label "Brego"@en ;
+    ex:hasChild ex:Aldor .
+
+ex:Calimmacil a dbo:FictionalCharacter ;
+    rdfs:label "Calimmacil"@en ;
+    ex:hasParent ex:Arciryas .
+
+ex:Chubb a dbo:Family ;
+    rdfs:label "Chubb"@en .
+
+ex:Ciryon a dbo:FictionalCharacter ;
+    rdfs:label "Ciryon"@en .
+
+ex:Dinodas a dbo:FictionalCharacter ;
+    rdfs:label "Dinodas"@en .
+
+ex:Dodinas a dbo:FictionalCharacter ;
+    rdfs:label "Dodinas"@en .
+
+ex:Dol_Amroth a dbo:Place ;
+    rdfs:label "Dol Amroth"@en .
+
+ex:Donnamira a dbo:FictionalCharacter ;
+    rdfs:label "Donnamira"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Dwarf a dbo:EthnicGroup ;
+    rdfs:label "Dwarf"@en .
+
+ex:Edhellond a dbo:Place ;
+    rdfs:label "Edhellond"@en .
+
+ex:EldarionbrAt_least_two_daughters a dbo:FictionalCharacter ;
+    rdfs:label "Eldarion<br/>At least two daughters"@en ;
+    ex:hasParent ex:Aragorn .
+
+ex:Elendur a dbo:FictionalCharacter ;
+    rdfs:label "Elendur"@en .
+
+ex:Erchirion a dbo:FictionalCharacter ;
+    rdfs:label "Erchirion"@en .
+
+ex:Eriador_incl_Rivendell a dbo:Place ;
+    rdfs:label "Eriador (incl. Rivendell))"@en .
+
+ex:Everard_Took a dbo:FictionalCharacter ;
+    rdfs:label "Everard Took"@en ;
+    ex:hasParent ex:Adelard_Took .
+
+ex:Eärendil a dbo:FictionalCharacter ;
+    rdfs:label "Eärendil"@en ;
+    ex:hasChild ex:Anardil_King_of_Gondor .
+
+ex:Eärendur a dbo:FictionalCharacter ;
+    rdfs:label "Eärendur"@en ;
+    ex:hasChild ex:Amlaith .
+
+ex:Filibert a dbo:FictionalCharacter ;
+    rdfs:label "Filibert"@en ;
+    ex:hasParent ex:Adalbert_Bolger .
+
+ex:Finduilas a dbo:FictionalCharacter ;
+    rdfs:label "Finduilas"@en ;
+    ex:hasParent ex:Adrahil .
+
+ex:Flambard_Took a dbo:FictionalCharacter ;
+    rdfs:label "Flambard Took"@en ;
+    ex:hasChild ex:Adelard_Took .
+
+ex:Forbidden_Pool a dbo:Place ;
+    rdfs:label "Forbidden Pool"@en .
+
+ex:Fréa a dbo:FictionalCharacter ;
+    rdfs:label "Fréa"@en ;
+    ex:hasParent ex:Aldor .
+
+ex:Gamgee a dbo:Family ;
+    rdfs:label "Gamgee"@en .
+
+ex:Gerda_Boffin a dbo:FictionalCharacter ;
+    rdfs:label "Gerda Boffin"@en ;
+    ex:hasSpouse ex:Adalbert_Bolger .
+
+ex:Gilraen a dbo:FictionalCharacter ;
+    rdfs:label "Gilraen"@en ;
+    ex:hasSpouse ex:Arathorn_II .
+
+ex:Gorbadoc_Brandybuck_and_Mirabella_Took a dbo:FictionalCharacter ;
+    rdfs:label "Gorbadoc Brandybuck and Mirabella Took"@en ;
+    ex:hasChild ex:Amaranth_Brandybuck .
+
+ex:Gorbadoc_and_Orgulas a dbo:FictionalCharacter ;
+    rdfs:label "Gorbadoc and Orgulas"@en ;
+    ex:hasParent ex:Adaldrida_Bolger .
+
+ex:Great_Smials a dbo:Place ;
+    rdfs:label "Great Smials"@en .
+
+ex:Gundahad a dbo:FictionalCharacter ;
+    rdfs:label "Gundahad"@en ;
+    ex:hasParent ex:Alfrida_of_the_Yale .
+
+ex:Gundahar a dbo:FictionalCharacter ;
+    rdfs:label "Gundahar"@en ;
+    ex:hasParent ex:Alfrida_of_the_Yale .
+
+ex:Gundolpho_Bolger a dbo:FictionalCharacter ;
+    rdfs:label "Gundolpho Bolger"@en ;
+    ex:hasSpouse ex:Alfrida_of_the_Yale .
+
+ex:Halfred a dbo:FictionalCharacter ;
+    rdfs:label "Halfred"@en .
+
+ex:Hamfast a dbo:FictionalCharacter ;
+    rdfs:label "Hamfast"@en .
+
+ex:Henneth_Annûn a dbo:Place ;
+    rdfs:label "Henneth Annûn"@en .
+
+ex:Hildibrand a dbo:FictionalCharacter ;
+    rdfs:label "Hildibrand"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Hildifons a dbo:FictionalCharacter ;
+    rdfs:label "Hildifons"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Hildigard a dbo:FictionalCharacter ;
+    rdfs:label "Hildigard"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Hildigrim a dbo:FictionalCharacter ;
+    rdfs:label "Hildigrim"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Hildigrim_Took_and_Rosa_Baggins a dbo:FictionalCharacter ;
+    rdfs:label "Hildigrim Took and Rosa Baggins"@en ;
+    ex:hasChild ex:Adalgrim_Took .
+
+ex:Hobbiton a dbo:Place ;
+    rdfs:label "Hobbiton"@en .
+
+ex:Hobson_Roper_Gamgee a dbo:FictionalCharacter ;
+    rdfs:label "Hobson \"Roper\" Gamgee"@en ;
+    ex:hasChild ex:Andwise_Roper .
+
+ex:Hyarmendacil_II a dbo:FictionalCharacter ;
+    rdfs:label "Hyarmendacil II"@en ;
+    ex:hasParent ex:Aldamir .
+
+ex:Isembard a dbo:FictionalCharacter ;
+    rdfs:label "Isembard"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Isembold a dbo:FictionalCharacter ;
+    rdfs:label "Isembold"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Isengar a dbo:FictionalCharacter ;
+    rdfs:label "Isengar"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Isengrim_III a dbo:FictionalCharacter ;
+    rdfs:label "Isengrim III"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Isildur a dbo:FictionalCharacter ;
+    rdfs:label "Isildur"@en ;
+    ex:hasChild ex:Aratan .
+
+ex:Isumbras_IV a dbo:FictionalCharacter ;
+    rdfs:label "Isumbras IV"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Ivriniel a dbo:FictionalCharacter ;
+    rdfs:label "Ivriniel"@en ;
+    ex:hasParent ex:Adrahil .
+
+ex:Lamedon a dbo:Place ;
+    rdfs:label "Lamedon"@en .
+
+ex:Lothlórien a dbo:Place ;
+    rdfs:label "Lothlórien"@en .
+
+ex:Lothíriel a dbo:FictionalCharacter ;
+    rdfs:label "Lothíriel"@en .
+
+ex:Malvegil a dbo:FictionalCharacter ;
+    rdfs:label "Malvegil"@en ;
+    ex:hasChild ex:Argeleb_I .
+
+ex:Marmadoc_Brandybuck a dbo:FictionalCharacter ;
+    rdfs:label "Marmadoc Brandybuck"@en ;
+    ex:hasSpouse ex:Adaldrida_Bolger .
+
+ex:May a dbo:FictionalCharacter ;
+    rdfs:label "May"@en .
+
+ex:Mirabella a dbo:FictionalCharacter ;
+    rdfs:label "Mirabella"@en ;
+    ex:hasParent ex:Adamanta_Chubb .
+
+ex:Narmacil a dbo:FictionalCharacter ;
+    rdfs:label "Narmacil"@en .
+
+ex:Near_the_Harad_Road a dbo:Place ;
+    rdfs:label "Near the Harad Road"@en .
+
+ex:Nimrodel_betrothed a dbo:FictionalCharacter ;
+    rdfs:label "Nimrodel (betrothed)"@en ;
+    ex:hasSpouse ex:Amroth .
+
+ex:Old_Took a dbo:FictionalCharacter ;
+    rdfs:label "Old Took"@en ;
+    ex:hasSpouse ex:Adamanta_Chubb .
+
+ex:Ornendil a dbo:FictionalCharacter ;
+    rdfs:label "Ornendil"@en .
+
+ex:Ostoher a dbo:FictionalCharacter ;
+    rdfs:label "Ostoher"@en ;
+    ex:hasParent ex:Anardil_King_of_Gondor .
+
+ex:Paladin_and_Esmeralda a dbo:FictionalCharacter ;
+    rdfs:label "Paladin and Esmeralda"@en ;
+    ex:hasParent ex:Adalgrim_Took .
+
+ex:Ponto_Baggins a dbo:FictionalCharacter ;
+    rdfs:label "Ponto Baggins"@en ;
+    ex:hasChild ex:Angelica_Baggins .
+
+ex:Primula a dbo:FictionalCharacter ;
+    rdfs:label "Primula"@en .
+
+ex:Probably_an_ancestor_of_Imrazôrref_nameCirion a dbo:FictionalCharacter ;
+    rdfs:label "Probably an ancestor of Imrazôr<ref name=\"Cirion\"/>"@en ;
+    ex:hasParent ex:Adrahil_Captain_of_the_Left_Wing .
+
+ex:Reginard_Took a dbo:FictionalCharacter ;
+    rdfs:label "Reginard Took"@en ;
+    ex:hasParent ex:Adelard_Took .
+
+ex:RivendellbrGondorbrArnorbrRohanbrRhûn_and_Harad a dbo:Place ;
+    rdfs:label "Rivendell<br/>Gondor<br/>Arnor<br/>Rohan<br/>Rhûn and Harad"@en .
+
+ex:Rohan a dbo:Place ;
+    rdfs:label "Rohan"@en .
+
+ex:Rohir a dbo:EthnicGroup ;
+    rdfs:label "Rohir"@en .
+
+ex:Roper_family a dbo:Family ;
+    rdfs:label "Roper family"@en .
+
+ex:Rorimac a dbo:FictionalCharacter ;
+    rdfs:label "Rorimac"@en .
+
+ex:Ruby a dbo:FictionalCharacter ;
+    rdfs:label "Ruby"@en ;
+    ex:hasParent ex:Adalgar_Bolger .
+
+ex:Rudibert a dbo:FictionalCharacter ;
+    rdfs:label "Rudibert"@en ;
+    ex:hasParent ex:Adalgar_Bolger .
+
+ex:Rudibert_Bolger a dbo:FictionalCharacter ;
+    rdfs:label "Rudibert Bolger"@en ;
+    ex:hasSpouse ex:Amethyst_Hornblower .
+
+ex:Rudibert_Bolger_and_Amethyst_Hornblower a dbo:FictionalCharacter ;
+    rdfs:label "Rudibert Bolger and Amethyst Hornblower"@en ;
+    ex:hasChild ex:Adalbert_Bolger .
+
+ex:Rudigar a dbo:FictionalCharacter ;
+    rdfs:label "Rudigar"@en ;
+    ex:hasParent ex:Adalgar_Bolger .
+
+ex:Rudolph a dbo:FictionalCharacter ;
+    rdfs:label "Rudolph"@en ;
+    ex:hasParent ex:Alfrida_of_the_Yale .
+
+ex:Saradas a dbo:FictionalCharacter ;
+    rdfs:label "Saradas"@en .
+
+ex:Sinda a dbo:EthnicGroup ;
+    rdfs:label "Sinda"@en .
+
+ex:Tarcil a dbo:FictionalCharacter ;
+    rdfs:label "Tarcil"@en ;
+    ex:hasParent ex:Arantar .
+
+ex:Telumehtar a dbo:FictionalCharacter ;
+    rdfs:label "Telumehtar"@en ;
+    ex:hasChild ex:Arciryas .
+
+ex:The_Shire a dbo:Place ;
+    rdfs:label "The Shire"@en .
+
+ex:The_YalebrBudgeford a dbo:Place ;
+    rdfs:label "The Yale<br/>Budgeford"@en .
+
+ex:Three_unnamed_daughters a dbo:FictionalCharacter ;
+    rdfs:label "Three unnamed daughters"@en ;
+    ex:hasParent ex:Aldor .
+
+ex:Tookland a dbo:Place ;
+    rdfs:label "Tookland"@en .
+
+ex:Umbar a dbo:Place ;
+    rdfs:label "Umbar"@en .
+
+ex:Valandil a dbo:FictionalCharacter ;
+    rdfs:label "Valandil"@en .
+
+ex:at_least_one_other a dbo:FictionalCharacter ;
+    rdfs:label "at least one other"@en ;
+    ex:hasParent ex:Aranarth .
+
+ex:two_unnamed_brothers a dbo:FictionalCharacter ;
+    rdfs:label "two unnamed brothers"@en .
+
+ex:unknown_great-grandson_of_Castamir a dbo:FictionalCharacter ;
+    rdfs:label "''unknown''; great-grandson of Castamir"@en ;
+    ex:hasChild ex:Angamaitë .
+
+ex:Adalgrim_Took a dbo:FictionalCharacter ;
+    rdfs:label "Adalgrim Took"@en ;
+    dbo:ethnicGroup ex:Hobbit ;
+    dbo:family ex:Took ;
+    dbo:location ex:Great_Smials ;
+    owl:sameAs <http://dbpedia.org/resource/Adalgrim_Took> ;
+    ex:age "102" ;
+    ex:birth "1280" ;
+    ex:children ex:Paladin_and_Esmeralda ;
+    ex:death "1382" ;
+    ex:gender "Male" ;
+    ex:name "Adalgrim Took" ;
+    ex:parentage ex:Hildigrim_Took_and_Rosa_Baggins .
+
+ex:Aglahad a dbo:FictionalCharacter ;
+    rdfs:label "Aglahad"@en ;
+    dbo:ethnicGroup ex:Gondorian ;
+    dbo:location ex:Gondor ;
+    owl:sameAs <http://dbpedia.org/resource/Aglahad> ;
+    ex:age "105" ;
+    ex:birth "{{TA|2827}}" ;
+    ex:children ex:Angelimir ;
+    ex:death "{{TA|2932}}" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Angelimir ;
+    ex:house "House of Dol Amroth" ;
+    ex:language "Westron" ;
+    ex:name "Aglahad" ;
+    ex:rule "{{TA|2899}} - {{TA|2932|n}} (33 years)" ;
+    ex:titles "Prince of Dol Amroth" .
+
+ex:Aldamir a dbo:FictionalCharacter ;
+    rdfs:label "Aldamir"@en ;
+    dbo:ethnicGroup ex:Gondorian ;
+    dbo:location ex:Gondor ;
+    owl:sameAs <http://dbpedia.org/resource/Aldamir> ;
+    ex:age "210" ;
+    ex:birth "{{TA|1330}}" ;
+    ex:caption "\"Aldamir of Gondor\" by Matěj Čadil" ;
+    ex:children ex:Hyarmendacil_II ;
+    ex:death "{{TA|1540}}" ;
+    ex:gender "Male" ;
+    ex:image "Matěj_Čadil_-_Aldamir_of_Gondor.jpg" ;
+    ex:name "Aldamir" ;
+    ex:parentage ex:Eldacar ;
+    ex:rule "{{TA|1490}} - {{TA|1540|n}} (50 years)" ;
+    ex:siblings ex:Ornendil ;
+    ex:titles "King of Gondor" .
+
+ex:Amethyst_Hornblower a dbo:FictionalCharacter ;
+    rdfs:label "Amethyst Hornblower"@en ;
+    dbo:ethnicGroup ex:Hobbit ;
+    dbo:family ex:Hornblower ;
+    dbo:location ex:Budgeford ;
+    dbo:spouse ex:Rudibert_Bolger ;
+    owl:sameAs <http://dbpedia.org/resource/Amethyst_Hornblower> ;
+    ex:birth "c. 1260" ;
+    ex:children ex:Adalbert ;
+    ex:gender "Female" ;
+    ex:name "Amethyst Hornblower" ;
+    ex:othernames "Amethyst Bolger" .
+
+ex:Amlaith a dbo:FictionalCharacter ;
+    rdfs:label "Amlaith"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Arthedain ;
+    owl:sameAs <http://dbpedia.org/resource/Amlaith> ;
+    ex:age "220" ;
+    ex:birth "{{TA|726}}" ;
+    ex:caption "\"Amlaith",
+        "king of Arthedain\" by ElfinFen" ;
+    ex:children ex:Beleg ;
+    ex:death "{{TA|946}}" ;
+    ex:gender "Male" ;
+    ex:house "House of Isildur" ;
+    ex:image "ElfinFen - Amlaith",
+        "king of Arthedain.jpg" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Amlaith" ;
+    ex:parentage ex:Eärendur ;
+    ex:rule "{{TA|861}} - {{TA|946|n}}" ;
+    ex:siblings ex:two_unnamed_brothers ;
+    ex:titles "King of Arthedain" .
+
+ex:Amroth a dbo:FictionalCharacter ;
+    rdfs:label "Amroth"@en ;
+    dbo:ethnicGroup ex:Sinda ;
+    dbo:location ex:Edhellond,
+        ex:Lothlórien ;
+    dbo:spouse ex:Nimrodel_betrothed ;
+    owl:sameAs <http://dbpedia.org/resource/Amroth> ;
+    ex:age "4",
+        "685+" ;
+    ex:birth "Before c. {{SA|730}}" ;
+    ex:caption "\"Amroth\" by Olga Kukhtenkova" ;
+    ex:death "{{TA|1981}}" ;
+    ex:deathlocation "Bay of Belfalas" ;
+    ex:gender "Male" ;
+    ex:hair "Bright<ref name=amroth/>" ;
+    ex:image "Olga Kukhtenkova - Amroth.jpg" ;
+    ex:language "Silvan Elvish",
+        "Sindarin" ;
+    ex:name "Amroth" ;
+    ex:parentage ex:Amdír ;
+    ex:rule "{{SA|3434}} - {{TA|1981}}" ;
+    ex:titles "King of Lórien" .
+
+ex:Anardil_King_of_Gondor a dbo:FictionalCharacter ;
+    rdfs:label "Anardil"@en ;
+    dbo:ethnicGroup ex:Gondorian ;
+    dbo:location ex:Gondor ;
+    owl:sameAs <http://dbpedia.org/resource/Anardil_King_of_Gondor> ;
+    ex:age "275" ;
+    ex:birth "{{TA|136}}" ;
+    ex:caption "\"Anardil of Gondor\" by Matěj Čadil" ;
+    ex:children ex:Ostoher ;
+    ex:death "{{TA|411}}" ;
+    ex:gender "Male" ;
+    ex:house "House of Anárion" ;
+    ex:image "Matěj Čadil - Anardil of Gondor.jpg" ;
+    ex:language "Westron and Sindarin" ;
+    ex:name "Anardil" ;
+    ex:parentage ex:Eärendil ;
+    ex:rule "{{TA|324}} - {{TA|411}} (87 years)" ;
+    ex:titles "King of Gondor" .
+
+ex:Anson_Roper a dbo:FictionalCharacter ;
+    rdfs:label "Anson Roper"@en ;
+    dbo:ethnicGroup ex:Hobbit ;
+    dbo:family ex:Roper_family ;
+    dbo:location ex:Tighfield ;
+    owl:sameAs <http://dbpedia.org/resource/Anson_Roper> ;
+    ex:birth "1361" ;
+    ex:caption "Anson - Illustration by Miriam Ellis" ;
+    ex:gender "Male" ;
+    ex:hasParent ex:Andwise_Roper ;
+    ex:image "Miriam Ellis - Anson.png" ;
+    ex:name "Anson Roper" ;
+    ex:parentage ex:Andwise_Roper .
+
+ex:Arantar a dbo:FictionalCharacter ;
+    rdfs:label "Arantar"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Annúminas ;
+    owl:sameAs <http://dbpedia.org/resource/Arantar> ;
+    ex:age "250" ;
+    ex:birth "{{TA|185}}" ;
+    ex:children ex:Tarcil ;
+    ex:death "{{TA|435}}" ;
+    ex:gender "Male" ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin" ;
+    ex:name "Arantar" ;
+    ex:parentage ex:Eldacar ;
+    ex:rule "{{TA|339}} - {{TA|435|n}}" ;
+    ex:titles "King of Arnor" .
+
+ex:Araphor a dbo:FictionalCharacter ;
+    rdfs:label "Araphor"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Arthedain ;
+    owl:sameAs <http://dbpedia.org/resource/Araphor> ;
+    ex:age "198" ;
+    ex:birth "{{TA|1391}}" ;
+    ex:children ex:Argeleb_II ;
+    ex:death "{{TA|1589}}" ;
+    ex:gender "Male" ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Araphor" ;
+    ex:parentage ex:Arveleg_I ;
+    ex:rule "{{TA|1409}} - {{TA|1589|n}}" ;
+    ex:titles "King of Arthedain" .
+
 ex:Arciryas a dbo:FictionalCharacter ;
-    rdfs:label "Arciryas"@de,
-        "Arciryas"@en,
-        "Arciryas"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/gondoriens/arciryas"@fr ;
+    rdfs:label "Arciryas"@en ;
     dbo:ethnicGroup ex:Gondorian ;
     dbo:location ex:Gondor ;
     owl:sameAs <http://dbpedia.org/resource/Arciryas> ;
@@ -504,10 +761,7 @@ ex:Arciryas a dbo:FictionalCharacter ;
     ex:siblings ex:Narmacil .
 
 ex:Argeleb_I a dbo:FictionalCharacter ;
-    rdfs:label "Argeleb I."@de,
-        "Argeleb I"@en,
-        "Argeleb I"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/argeleb ier"@fr ;
+    rdfs:label "Argeleb I"@en ;
     dbo:ethnicGroup ex:Arnorian ;
     dbo:location ex:Arthedain ;
     owl:sameAs <http://dbpedia.org/resource/Argeleb_I> ;
@@ -527,17 +781,181 @@ ex:Argeleb_I a dbo:FictionalCharacter ;
     ex:rule "{{TA|1349}} - {{TA|1356|n}}" ;
     ex:titles "King of Arthedain" .
 
-ex:2_daughters a dbo:FictionalCharacter ;
-    rdfs:label "2 daughters"@en .
+ex:Arveleg_I a dbo:FictionalCharacter ;
+    rdfs:label "Arveleg I"@en ;
+    ex:hasChild ex:Araphor ;
+    ex:hasParent ex:Argeleb_I .
 
-ex:Adalbert a dbo:FictionalCharacter ;
-    rdfs:label "Adalbert"@en .
+ex:Buckland a dbo:Place ;
+    rdfs:label "Buckland"@en .
+
+ex:Eldacar a dbo:FictionalCharacter ;
+    rdfs:label "Eldacar"@en ;
+    ex:hasChild ex:Aldamir,
+        ex:Arantar .
+
+ex:Elphir a dbo:FictionalCharacter ;
+    rdfs:label "Elphir"@en ;
+    ex:hasChild ex:Alphros .
+
+ex:Gundahar_Bolger_and_Dina_Diggle a dbo:FictionalCharacter ;
+    rdfs:label "Gundahar Bolger and Dina Diggle"@en ;
+    ex:hasChild ex:Adaldrida_Bolger,
+        ex:Adalgar_Bolger .
+
+ex:Hornblower a dbo:Family ;
+    rdfs:label "Hornblower"@en .
+
+ex:Imrahil a dbo:FictionalCharacter ;
+    rdfs:label "Imrahil"@en ;
+    ex:hasChild ex:Amrothos ;
+    ex:hasParent ex:Adrahil .
+
+ex:Tighfield a dbo:Place ;
+    rdfs:label "Tighfield"@en .
+
+ex:Took a dbo:Family ;
+    rdfs:label "Took"@en .
+
+ex:Adalbert_Bolger a dbo:FictionalCharacter ;
+    rdfs:label "Adalbert Bolger"@en ;
+    dbo:ethnicGroup ex:Hobbit ;
+    dbo:family ex:Bolger ;
+    dbo:location ex:Budgeford ;
+    dbo:spouse ex:Gerda_Boffin ;
+    owl:sameAs <http://dbpedia.org/resource/Adalbert_Bolger> ;
+    ex:age "96" ;
+    ex:birth "1301" ;
+    ex:children ex:Filibert ;
+    ex:death "1397" ;
+    ex:gender "Male" ;
+    ex:name "Adalbert Bolger" ;
+    ex:parentage ex:Rudibert_Bolger_and_Amethyst_Hornblower .
+
+ex:Aldor a dbo:FictionalCharacter ;
+    rdfs:label "Aldor"@en ;
+    dbo:ethnicGroup ex:Rohir ;
+    dbo:location ex:Rohan ;
+    owl:sameAs <http://dbpedia.org/resource/Aldor> ;
+    ex:birth "{{TA|2544}}" ;
+    ex:caption "\"The House of Eorl - Aldor the Old\" by Lída Holubová" ;
+    ex:children ex:Fréa,
+        ex:Three_unnamed_daughters ;
+    ex:death "{{TA|2645}} (aged 101)" ;
+    ex:gender "Male" ;
+    ex:house "House of Eorl" ;
+    ex:image "Lída Holubová - The House of Eorl - Aldor the Old.jpg" ;
+    ex:language "Rohanese and Westron" ;
+    ex:name "Aldor" ;
+    ex:othernames "\"the Old\"" ;
+    ex:parentage ex:Brego ;
+    ex:rule "{{TA|2570}} – {{TA|2645|n}} (75 years)" ;
+    ex:siblings ex:Baldor_and_Eofor ;
+    ex:titles "King of Rohan" .
+
+ex:Andwise_Roper a dbo:FictionalCharacter ;
+    rdfs:label "Andwise Roper"@en ;
+    dbo:ethnicGroup ex:Hobbit ;
+    dbo:family ex:Gamgee ;
+    dbo:location ex:Tighfield ;
+    owl:sameAs <http://dbpedia.org/resource/Andwise_Roper> ;
+    ex:birth "1323" ;
+    ex:children ex:Anson_Roper ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Anson_Roper ;
+    ex:name "Andwise Roper" ;
+    ex:othernames "Andy" ;
+    ex:parentage ex:Hobson_Roper_Gamgee ;
+    ex:siblings ex:Halfred,
+        ex:Hamfast,
+        ex:May .
+
+ex:Arador a dbo:FictionalCharacter ;
+    rdfs:label "Arador"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Rivendell ;
+    owl:sameAs <http://dbpedia.org/resource/Arador> ;
+    ex:age "110" ;
+    ex:birth "{{TA|2820}}" ;
+    ex:caption "Arador from ''Born of Hope''" ;
+    ex:children ex:Arathorn_II ;
+    ex:death "{{TA|2930}}" ;
+    ex:deathlocation "Coldfells" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Arathorn_II ;
+    ex:house "House of Isildur" ;
+    ex:image "Born of Hope - Arador.jpg" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Arador" ;
+    ex:parentage ex:Argonui ;
+    ex:rule "{{TA|2912}} - {{TA|2930|n}}" ;
+    ex:titles "Chieftain of the Dúnedain" .
+
+ex:Araphant a dbo:FictionalCharacter ;
+    rdfs:label "Araphant"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Arthedain ;
+    owl:sameAs <http://dbpedia.org/resource/Araphant> ;
+    ex:age "175" ;
+    ex:birth "{{TA|1789}}" ;
+    ex:children ex:Arvedui ;
+    ex:death "{{TA|1964}}" ;
+    ex:gender "Male" ;
+    ex:hasParent ex:Araval ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Araphant" ;
+    ex:parentage ex:Araval ;
+    ex:rule "{{TA|1891}} - {{TA|1964|n}}" ;
+    ex:titles "King of Arthedain" .
+
+ex:Arathorn_I a dbo:FictionalCharacter ;
+    rdfs:label "Arathorn I"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Eriador_incl_Rivendell ;
+    owl:sameAs <http://dbpedia.org/resource/Arathorn_I> ;
+    ex:age "155" ;
+    ex:birth "{{TA|2693}}<sup>NB</sup>" ;
+    ex:children ex:Argonuibr_Probably_at_least_one_other_childsupNBsup ;
+    ex:death "{{TA|2848}}" ;
+    ex:gender "Male" ;
+    ex:hasParent ex:Arassuil ;
+    ex:house "House of Isildur" ;
+    ex:language "''Presumably'' Sindarin & Westron" ;
+    ex:name "Arathorn I" ;
+    ex:parentage ex:Arassuil ;
+    ex:rule "{{TA|2784}} - {{TA|2848|n}}" ;
+    ex:titles "Chieftain of the Dúnedain" .
+
+ex:Araval a dbo:FictionalCharacter ;
+    rdfs:label "Araval"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Arthedain ;
+    owl:sameAs <http://dbpedia.org/resource/Araval> ;
+    ex:age "180" ;
+    ex:birth "{{TA|1711}}" ;
+    ex:children ex:Araphant ;
+    ex:death "{{TA|1891}}" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Araphant ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Araval" ;
+    ex:parentage ex:Arveleg_II ;
+    ex:rule "{{TA|1813}} - {{TA|1891|n}}" ;
+    ex:titles "King of Arthedain" .
+
+ex:Bolger a dbo:Family ;
+    rdfs:label "Bolger"@en .
+
+ex:Budgeford a dbo:Place ;
+    rdfs:label "Budgeford"@en .
 
 ex:Adaldrida_Bolger a dbo:FictionalCharacter ;
-    rdfs:label "Adaldrida Brandybock"@de,
-        "Adaldrida Bolger"@en,
-        "Adaldrida Bolger"@fi,
-        "encyclo/personnages/hobbits/bolger/adaldrida bolger"@fr ;
+    rdfs:label "Adaldrida Bolger"@en ;
     dbo:ethnicGroup ex:Hobbit ;
     dbo:family ex:Bolger ;
     dbo:location ex:Buckland ;
@@ -550,118 +968,96 @@ ex:Adaldrida_Bolger a dbo:FictionalCharacter ;
     ex:parentage ex:Gundahar_Bolger_and_Dina_Diggle ;
     ex:siblings ex:Adalgar .
 
-ex:Adalgar a dbo:FictionalCharacter ;
-    rdfs:label "Adalgar"@en .
-
-ex:Adrahil a dbo:FictionalCharacter ;
-    rdfs:label "Adrahil II."@de,
-        "Adrahil"@en,
-        "Adrahil (suuriruhtinas)"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/gondoriens/adrahil"@fr ;
-    dbo:ethnicGroup ex:Gondorian ;
-    owl:sameAs <http://dbpedia.org/resource/Adrahil> ;
-    ex:age "93" ;
-    ex:birth "{{TA|2917}}" ;
-    ex:children ex:Finduilas,
-        ex:Imrahil,
-        ex:Ivriniel ;
-    ex:death "{{TA|3010}}" ;
+ex:Adalgar_Bolger a dbo:FictionalCharacter ;
+    rdfs:label "Adalgar Bolger"@en ;
+    dbo:ethnicGroup ex:Hobbit ;
+    dbo:family ex:Bolger ;
+    dbo:location ex:Budgeford ;
+    owl:sameAs <http://dbpedia.org/resource/Adalgar_Bolger> ;
+    ex:age "99" ;
+    ex:birth "1215" ;
+    ex:children ex:Ruby,
+        ex:Rudibert,
+        ex:Rudigar ;
+    ex:death "1314" ;
     ex:gender "Male" ;
-    ex:house "House of Dol Amroth" ;
-    ex:name "Adrahil" ;
-    ex:parentage ex:Angelimir ;
-    ex:rule "{{TA|2977}} - {{TA|3010|n}} (33 years)" ;
-    ex:titles "Prince of Dol Amroth" .
+    ex:name "Adalgar Bolger" ;
+    ex:parentage ex:Gundahar_Bolger_and_Dina_Diggle ;
+    ex:siblings ex:Adaldrida_Bolger .
 
-ex:Aglahad a dbo:FictionalCharacter ;
-    rdfs:label "Aglahad"@de,
-        "Aglahad"@en,
-        "Aglahad"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/gondoriens/aglahad"@fr ;
-    dbo:ethnicGroup ex:Gondorian ;
-    dbo:location ex:Gondor ;
-    owl:sameAs <http://dbpedia.org/resource/Aglahad> ;
-    ex:age "105" ;
-    ex:birth "{{TA|2827}}" ;
-    ex:children ex:Angelimir ;
-    ex:death "{{TA|2932}}" ;
+ex:Adelard_Took a dbo:FictionalCharacter ;
+    rdfs:label "Adelard Took"@en ;
+    dbo:ethnicGroup ex:Hobbit ;
+    dbo:family ex:Took ;
+    owl:sameAs <http://dbpedia.org/resource/Adelard_Took> ;
+    ex:age "95" ;
+    ex:birth "1328" ;
+    ex:caption "Adelard Took from ''The Lord of the Rings Online''" ;
+    ex:children ex:2_daughters,
+        ex:Everard_Took,
+        ex:Reginard_Took ;
+    ex:death "1423" ;
     ex:gender "Male" ;
+    ex:image "The Lord of the Rings Online - Adelard Took.jpg" ;
+    ex:name "Adelard Took" ;
+    ex:parentage ex:Flambard_Took .
+
+ex:Alfrida_of_the_Yale a dbo:FictionalCharacter ;
+    rdfs:label "Alfrida"@en ;
+    dbo:ethnicGroup ex:Hobbit ;
+    dbo:location ex:The_YalebrBudgeford ;
+    dbo:spouse ex:Gundolpho_Bolger ;
+    owl:sameAs <http://dbpedia.org/resource/Alfrida_of_the_Yale> ;
+    ex:birth "c. 1131" ;
+    ex:children ex:Gundahad,
+        ex:Gundahar,
+        ex:Rudolph ;
+    ex:gender "Female" ;
+    ex:name "Alfrida" ;
+    ex:othernames "Alfrida Bolger" .
+
+ex:Angelimir a dbo:FictionalCharacter ;
+    rdfs:label "Angelimir"@en ;
+    dbo:ethnicGroup ex:Gondorian ;
+    dbo:location ex:Dol_Amroth,
+        ex:Gondor ;
+    owl:sameAs <http://dbpedia.org/resource/Angelimir> ;
+    ex:age "111" ;
+    ex:birth "{{TA|2866}}" ;
+    ex:children ex:Adrahil ;
+    ex:death "{{TA|2977}}" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Adrahil ;
+    ex:hasParent ex:Aglahad ;
     ex:house "House of Dol Amroth" ;
     ex:language "Westron" ;
-    ex:name "Aglahad" ;
-    ex:rule "{{TA|2899}} - {{TA|2932|n}} (33 years)" ;
+    ex:name "Angelimir" ;
+    ex:parentage ex:Aglahad ;
+    ex:rule "{{TA|2932}} - {{TA|2977|n}} (45 years)" ;
     ex:titles "Prince of Dol Amroth" .
 
-ex:Amdír a dbo:FictionalCharacter ;
-    rdfs:label "Amdír"@en .
-
-ex:Andwise_Roper a dbo:FictionalCharacter ;
-    rdfs:label "Andweis Seiler"@de,
-        "Andwise Roper"@en,
-        "Andvais Gamgi"@fi,
-        "encyclo/personnages/hobbits/cordier/andwise cordier"@fr ;
-    dbo:ethnicGroup ex:Hobbit ;
-    dbo:family ex:Gamgee ;
-    dbo:location ex:Tighfield ;
-    owl:sameAs <http://dbpedia.org/resource/Andwise_Roper> ;
-    ex:birth "1323" ;
-    ex:children ex:Anson_Roper ;
-    ex:gender "Male" ;
-    ex:name "Andwise Roper" ;
-    ex:othernames "Andy" ;
-    ex:parentage ex:Hobson_Roper_Gamgee ;
-    ex:siblings ex:Halfred,
-        ex:Hamfast,
-        ex:May .
-
-ex:Annúminas a dbo:Place ;
-    rdfs:label "Annúminas"@en .
-
-ex:Anson_Roper a dbo:FictionalCharacter ;
-    rdfs:label "Ansen Seiler"@de,
-        "Anson Roper"@en,
-        "Andinpoika Gamgi"@fi,
-        "encyclo/personnages/hobbits/cordier/anson cordier"@fr ;
-    dbo:ethnicGroup ex:Hobbit ;
-    dbo:family ex:Roper_family ;
-    dbo:location ex:Tighfield ;
-    owl:sameAs <http://dbpedia.org/resource/Anson_Roper> ;
-    ex:birth "1361" ;
-    ex:caption "Anson - Illustration by Miriam Ellis" ;
-    ex:gender "Male" ;
-    ex:image "Miriam Ellis - Anson.png" ;
-    ex:name "Anson Roper" ;
-    ex:parentage ex:Andwise_Roper .
-
-ex:Arador a dbo:FictionalCharacter ;
-    rdfs:label "Arador"@de,
-        "Arador"@en,
-        "Arador"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/arador"@fr ;
+ex:Araglas a dbo:FictionalCharacter ;
+    rdfs:label "Araglas"@en ;
     dbo:ethnicGroup ex:Arnorian ;
     dbo:location ex:Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Arador> ;
-    ex:age "110" ;
-    ex:birth "{{TA|2820}}" ;
-    ex:caption "Arador from ''Born of Hope''" ;
-    ex:children ex:Arathorn_II ;
-    ex:death "{{TA|2930}}" ;
-    ex:deathlocation "Coldfells" ;
+    owl:sameAs <http://dbpedia.org/resource/Araglas> ;
+    ex:age "159" ;
+    ex:birth "{{TA|2296}}" ;
+    ex:children ex:Arahad_I ;
+    ex:death "{{TA|2455}}" ;
     ex:gender "Male" ;
+    ex:hasChild ex:Arahad_I ;
+    ex:hasParent ex:Aragorn_I ;
     ex:house "House of Isildur" ;
-    ex:image "Born of Hope - Arador.jpg" ;
     ex:language "Sindarin",
         "Westron" ;
-    ex:name "Arador" ;
-    ex:parentage ex:Argonui ;
-    ex:rule "{{TA|2912}} - {{TA|2930|n}}" ;
+    ex:name "Araglas" ;
+    ex:parentage ex:Aragorn_I ;
+    ex:rule "{{TA|2327}} - {{TA|2455|n}}" ;
     ex:titles "Chieftain of the Dúnedain" .
 
 ex:Aragorn a dbo:FictionalCharacter ;
-    rdfs:label "Aragorn II."@de,
-        "Aragorn"@en,
-        "Aragorn II"@fi,
-        "/encyclo/personnages/hommes/3adunedain/dunedain du nord/aragorn ii"@fr ;
+    rdfs:label "Aragorn"@en ;
     dbo:ethnicGroup ex:Arnorian ;
     dbo:location ex:RivendellbrGondorbrArnorbrRohanbrRhûn_and_Harad ;
     dbo:spouse ex:Arwen ;
@@ -682,6 +1078,7 @@ ex:Aragorn a dbo:FictionalCharacter ;
     ex:gender "Male" ;
     ex:hair "Dark",
         "flecked with grey" ;
+    ex:hasParent ex:Arathorn_II ;
     ex:height "At least 6'6<nowiki>''</nowiki> (1.98 m)" ;
     ex:house "House of Isildur<br/>Founder of the House of Telcontar" ;
     ex:image "Yulia Alekseeva - Aragorn in Rivendell.jpg" ;
@@ -724,11 +1121,109 @@ ex:Aragorn a dbo:FictionalCharacter ;
     ex:titles "Chieftain of the Dúnedain<br/>High King of the Dúnedain<br/>King of Gondor and Arnor<br/>King of the West<br/>Lord of the Westlands" ;
     ex:weapons "Andúril" .
 
+ex:Aragorn_I a dbo:FictionalCharacter ;
+    rdfs:label "Aragorn I"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Rivendell ;
+    owl:sameAs <http://dbpedia.org/resource/Aragorn_I> ;
+    ex:age "100" ;
+    ex:birth "{{TA|2227}}" ;
+    ex:children ex:Araglas ;
+    ex:death "{{TA|2327}}" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Araglas ;
+    ex:hasParent ex:Aravir ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Aragorn I" ;
+    ex:parentage ex:Aravir ;
+    ex:rule "{{TA|2319}} - {{TA|2327|n}}" ;
+    ex:titles "Chieftain of the Dúnedain" .
+
+ex:Aragost a dbo:FictionalCharacter ;
+    rdfs:label "Aragost"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Rivendell ;
+    owl:sameAs <http://dbpedia.org/resource/Aragost> ;
+    ex:age "157" ;
+    ex:birth "{{TA|2431}}" ;
+    ex:children ex:Aravorn ;
+    ex:death "{{TA|2588}}" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Aravorn ;
+    ex:hasParent ex:Arahad_I ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Aragost" ;
+    ex:parentage ex:Arahad_I ;
+    ex:rule "{{TA|2523}} - {{TA|2588|n}}" ;
+    ex:titles "Chieftain of the Dúnedain" .
+
+ex:Arahad_I a dbo:FictionalCharacter ;
+    rdfs:label "Arahad I"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Rivendell ;
+    owl:sameAs <http://dbpedia.org/resource/Arahad_I> ;
+    ex:age "158" ;
+    ex:birth "{{TA|2365}}" ;
+    ex:children ex:Aragost ;
+    ex:death "{{TA|2523}}" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Aragost ;
+    ex:hasParent ex:Araglas ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Arahad I" ;
+    ex:parentage ex:Araglas ;
+    ex:rule "{{TA|2455}} - {{TA|2523|n}}" ;
+    ex:titles "Chieftain of the Dúnedain" .
+
+ex:Arahad_II a dbo:FictionalCharacter ;
+    rdfs:label "Arahad II"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Rivendell ;
+    owl:sameAs <http://dbpedia.org/resource/Arahad_II> ;
+    ex:age "156" ;
+    ex:birth "{{TA|2563}}" ;
+    ex:children ex:Arassuil ;
+    ex:death "{{TA|2719}}" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Arassuil ;
+    ex:hasParent ex:Aravorn ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Arahad II" ;
+    ex:parentage ex:Aravorn ;
+    ex:rule "{{TA|2654}} - {{TA|2719|n}}" ;
+    ex:titles "Chieftain of the Dúnedain" .
+
+ex:Arahael a dbo:FictionalCharacter ;
+    rdfs:label "Arahael"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Rivendell ;
+    owl:sameAs <http://dbpedia.org/resource/Arahael> ;
+    ex:age "165" ;
+    ex:birth "{{TA|2012}}" ;
+    ex:children ex:Aranuir ;
+    ex:death "{{TA|2177}}" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Aranuir ;
+    ex:hasParent ex:Aranarth ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin",
+        "Westron" ;
+    ex:name "Arahael" ;
+    ex:parentage ex:Aranarth ;
+    ex:rule "{{TA|2106}} - {{TA|2177|n}}" ;
+    ex:siblings ex:At_least_one_sibling ;
+    ex:titles "Chieftain of the Dúnedain" .
+
 ex:Aranarth a dbo:FictionalCharacter ;
-    rdfs:label "Aranarth"@de,
-        "Aranarth"@en,
-        "Aranarth"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/aranarth"@fr ;
+    rdfs:label "Aranarth"@en ;
     dbo:ethnicGroup ex:Arnorian ;
     dbo:location ex:Rivendell ;
     owl:sameAs <http://dbpedia.org/resource/Aranarth> ;
@@ -739,6 +1234,7 @@ ex:Aranarth a dbo:FictionalCharacter ;
         ex:at_least_one_other ;
     ex:death "{{TA|2106}}" ;
     ex:gender "Male" ;
+    ex:hasChild ex:Arahael ;
     ex:house "House of Isildur" ;
     ex:image "Elena Kukanova - Aranarth.jpeg" ;
     ex:language "Sindarin",
@@ -749,52 +1245,47 @@ ex:Aranarth a dbo:FictionalCharacter ;
     ex:siblings ex:At_least_one_younger_brother ;
     ex:titles "Chieftain of the Dúnedain" .
 
-ex:Araphant a dbo:FictionalCharacter ;
-    rdfs:label "Araphant"@de,
-        "Araphant"@en,
-        "Araphant"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/araphant"@fr ;
+ex:Aranuir a dbo:FictionalCharacter ;
+    rdfs:label "Aranuir"@en ;
     dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Arthedain ;
-    owl:sameAs <http://dbpedia.org/resource/Araphant> ;
-    ex:age "175" ;
-    ex:birth "{{TA|1789}}" ;
-    ex:children ex:Arvedui ;
-    ex:death "{{TA|1964}}" ;
+    dbo:location ex:Rivendell ;
+    owl:sameAs <http://dbpedia.org/resource/Aranuir> ;
+    ex:age "163" ;
+    ex:birth "{{TA|2084}}" ;
+    ex:children ex:Aravir ;
+    ex:death "{{TA|2247}}" ;
     ex:gender "Male" ;
+    ex:hasChild ex:Aravir ;
+    ex:hasParent ex:Arahael ;
+    ex:house "House of Isildur" ;
+    ex:language "Sindarin and Westron" ;
+    ex:name "Aranuir" ;
+    ex:parentage ex:Arahael ;
+    ex:rule "{{TA|2177}} - {{TA|2247|n}}" ;
+    ex:titles "Chieftain of the Dúnedain" .
+
+ex:Arassuil a dbo:FictionalCharacter ;
+    rdfs:label "Arassuil"@en ;
+    dbo:ethnicGroup ex:Arnorian ;
+    dbo:location ex:Rivendell ;
+    owl:sameAs <http://dbpedia.org/resource/Arassuil> ;
+    ex:age "156" ;
+    ex:birth "{{TA|2628}}" ;
+    ex:children ex:Arathorn_I ;
+    ex:death "{{TA|2784}}" ;
+    ex:gender "Male" ;
+    ex:hasChild ex:Arathorn_I ;
+    ex:hasParent ex:Arahad_II ;
     ex:house "House of Isildur" ;
     ex:language "Sindarin",
         "Westron" ;
-    ex:name "Araphant" ;
-    ex:parentage ex:Araval ;
-    ex:rule "{{TA|1891}} - {{TA|1964|n}}" ;
-    ex:titles "King of Arthedain" .
-
-ex:Arathorn_I a dbo:FictionalCharacter ;
-    rdfs:label "Arathorn I."@de,
-        "Arathorn I"@en,
-        "Arathorn I"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/arathorn ier"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Eriador_incl_Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Arathorn_I> ;
-    ex:age "155" ;
-    ex:birth "{{TA|2693}}<sup>NB</sup>" ;
-    ex:children ex:Argonuibr_Probably_at_least_one_other_childsupNBsup ;
-    ex:death "{{TA|2848}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "''Presumably'' Sindarin & Westron" ;
-    ex:name "Arathorn I" ;
-    ex:parentage ex:Arassuil ;
-    ex:rule "{{TA|2784}} - {{TA|2848|n}}" ;
+    ex:name "Arassuil" ;
+    ex:parentage ex:Arahad_II ;
+    ex:rule "{{TA|2719}} - {{TA|2784|n}}" ;
     ex:titles "Chieftain of the Dúnedain" .
 
 ex:Arathorn_II a dbo:FictionalCharacter ;
-    rdfs:label "Arathorn II."@de,
-        "Arathorn II"@en,
-        "Arathorn II"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/arathorn ii"@fr ;
+    rdfs:label "Arathorn II"@en ;
     dbo:ethnicGroup ex:Arnorian ;
     dbo:spouse ex:Gilraen ;
     owl:sameAs <http://dbpedia.org/resource/Arathorn_II> ;
@@ -804,6 +1295,7 @@ ex:Arathorn_II a dbo:FictionalCharacter ;
     ex:children ex:Aragorn ;
     ex:death "{{TA|2933}}" ;
     ex:gender "Male" ;
+    ex:hasParent ex:Arador ;
     ex:house "House of Isildur" ;
     ex:image "Guardians of Middle-earth - Arathorn Icon.jpg" ;
     ex:language "Sindarin",
@@ -813,542 +1305,8 @@ ex:Arathorn_II a dbo:FictionalCharacter ;
     ex:rule "{{TA|2930}} - {{TA|2933|n}}" ;
     ex:titles "Chieftain of the Dúnedain" .
 
-ex:Arathorn_II_fatherbrGilraen_motherbrElrond_foster_father a dbo:FictionalCharacter ;
-    rdfs:label "Arathorn II (father)<br/>Gilraen (mother)<br/>Elrond (foster father)"@en .
-
-ex:Araval a dbo:FictionalCharacter ;
-    rdfs:label "Araval"@de,
-        "Araval"@en,
-        "Araval"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/araval"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Arthedain ;
-    owl:sameAs <http://dbpedia.org/resource/Araval> ;
-    ex:age "180" ;
-    ex:birth "{{TA|1711}}" ;
-    ex:children ex:Araphant ;
-    ex:death "{{TA|1891}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Araval" ;
-    ex:parentage ex:Arveleg_II ;
-    ex:rule "{{TA|1813}} - {{TA|1891|n}}" ;
-    ex:titles "King of Arthedain" .
-
-ex:Argeleb_II a dbo:FictionalCharacter ;
-    rdfs:label "Argeleb II"@en .
-
-ex:Argonui a dbo:FictionalCharacter ;
-    rdfs:label "Argonui"@en .
-
-ex:Argonuibr_Probably_at_least_one_other_childsupNBsup a dbo:FictionalCharacter ;
-    rdfs:label "Argonui<br />''Probably'' at least one other child<sup>NB</sup>"@en .
-
-ex:Arvedui a dbo:FictionalCharacter ;
-    rdfs:label "Arvedui"@en .
-
-ex:Arvedui_and_Fíriel a dbo:FictionalCharacter ;
-    rdfs:label "Arvedui and Fíriel"@en .
-
-ex:Arveleg_II a dbo:FictionalCharacter ;
-    rdfs:label "Arveleg II"@en .
-
-ex:Arwen a dbo:FictionalCharacter ;
-    rdfs:label "Arwen"@en .
-
-ex:Asphodel a dbo:FictionalCharacter ;
-    rdfs:label "Asphodel"@en .
-
-ex:At_least_one_sibling a dbo:FictionalCharacter ;
-    rdfs:label "At least one sibling"@en .
-
-ex:At_least_one_younger_brother a dbo:FictionalCharacter ;
-    rdfs:label "At least one younger brother"@en .
-
-ex:Baggins a dbo:Family ;
-    rdfs:label "Baggins"@en .
-
-ex:Baldor_and_Eofor a dbo:FictionalCharacter ;
-    rdfs:label "Baldor and Eofor"@en .
-
-ex:Beleg a dbo:FictionalCharacter ;
-    rdfs:label "Beleg"@en .
-
-ex:Belladonna a dbo:FictionalCharacter ;
-    rdfs:label "Belladonna"@en .
-
-ex:Brandybuck a dbo:Family ;
-    rdfs:label "Brandybuck"@en .
-
-ex:Brego a dbo:FictionalCharacter ;
-    rdfs:label "Brego"@en .
-
-ex:Calimmacil a dbo:FictionalCharacter ;
-    rdfs:label "Calimmacil"@en .
-
-ex:Chubb a dbo:Family ;
-    rdfs:label "Chubb"@en .
-
-ex:Ciryon a dbo:FictionalCharacter ;
-    rdfs:label "Ciryon"@en .
-
-ex:Dinodas a dbo:FictionalCharacter ;
-    rdfs:label "Dinodas"@en .
-
-ex:Dodinas a dbo:FictionalCharacter ;
-    rdfs:label "Dodinas"@en .
-
-ex:Dol_Amroth a dbo:Place ;
-    rdfs:label "Dol Amroth"@en .
-
-ex:Donnamira a dbo:FictionalCharacter ;
-    rdfs:label "Donnamira"@en .
-
-ex:Dwarf a dbo:EthnicGroup ;
-    rdfs:label "Dwarf"@en .
-
-ex:Edhellond a dbo:Place ;
-    rdfs:label "Edhellond"@en .
-
-ex:EldarionbrAt_least_two_daughters a dbo:FictionalCharacter ;
-    rdfs:label "Eldarion<br/>At least two daughters"@en .
-
-ex:Elendur a dbo:FictionalCharacter ;
-    rdfs:label "Elendur"@en .
-
-ex:Erchirion a dbo:FictionalCharacter ;
-    rdfs:label "Erchirion"@en .
-
-ex:Eriador_incl_Rivendell a dbo:Place ;
-    rdfs:label "Eriador (incl. Rivendell))"@en .
-
-ex:Everard_Took a dbo:FictionalCharacter ;
-    rdfs:label "Everard Took"@en .
-
-ex:Eärendil a dbo:FictionalCharacter ;
-    rdfs:label "Eärendil"@en .
-
-ex:Eärendur a dbo:FictionalCharacter ;
-    rdfs:label "Eärendur"@en .
-
-ex:Filibert a dbo:FictionalCharacter ;
-    rdfs:label "Filibert"@en .
-
-ex:Finduilas a dbo:FictionalCharacter ;
-    rdfs:label "Finduilas"@en .
-
-ex:Flambard_Took a dbo:FictionalCharacter ;
-    rdfs:label "Flambard Took"@en .
-
-ex:Forbidden_Pool a dbo:Place ;
-    rdfs:label "Forbidden Pool"@en .
-
-ex:Fréa a dbo:FictionalCharacter ;
-    rdfs:label "Fréa"@en .
-
-ex:Gamgee a dbo:Family ;
-    rdfs:label "Gamgee"@en .
-
-ex:Gerda_Boffin a dbo:FictionalCharacter ;
-    rdfs:label "Gerda Boffin"@en .
-
-ex:Gilraen a dbo:FictionalCharacter ;
-    rdfs:label "Gilraen"@en .
-
-ex:Gorbadoc_Brandybuck_and_Mirabella_Took a dbo:FictionalCharacter ;
-    rdfs:label "Gorbadoc Brandybuck and Mirabella Took"@en .
-
-ex:Gorbadoc_and_Orgulas a dbo:FictionalCharacter ;
-    rdfs:label "Gorbadoc and Orgulas"@en .
-
-ex:Great_Smials a dbo:Place ;
-    rdfs:label "Great Smials"@en .
-
-ex:Gundahad a dbo:FictionalCharacter ;
-    rdfs:label "Gundahad"@en .
-
-ex:Gundahar a dbo:FictionalCharacter ;
-    rdfs:label "Gundahar"@en .
-
-ex:Gundolpho_Bolger a dbo:FictionalCharacter ;
-    rdfs:label "Gundolpho Bolger"@en .
-
-ex:Halfred a dbo:FictionalCharacter ;
-    rdfs:label "Halfred"@en .
-
-ex:Hamfast a dbo:FictionalCharacter ;
-    rdfs:label "Hamfast"@en .
-
-ex:Henneth_Annûn a dbo:Place ;
-    rdfs:label "Henneth Annûn"@en .
-
-ex:Hildibrand a dbo:FictionalCharacter ;
-    rdfs:label "Hildibrand"@en .
-
-ex:Hildifons a dbo:FictionalCharacter ;
-    rdfs:label "Hildifons"@en .
-
-ex:Hildigard a dbo:FictionalCharacter ;
-    rdfs:label "Hildigard"@en .
-
-ex:Hildigrim a dbo:FictionalCharacter ;
-    rdfs:label "Hildigrim"@en .
-
-ex:Hildigrim_Took_and_Rosa_Baggins a dbo:FictionalCharacter ;
-    rdfs:label "Hildigrim Took and Rosa Baggins"@en .
-
-ex:Hobbiton a dbo:Place ;
-    rdfs:label "Hobbiton"@en .
-
-ex:Hobson_Roper_Gamgee a dbo:FictionalCharacter ;
-    rdfs:label "Hobson \"Roper\" Gamgee"@en .
-
-ex:Hyarmendacil_II a dbo:FictionalCharacter ;
-    rdfs:label "Hyarmendacil II"@en .
-
-ex:Isembard a dbo:FictionalCharacter ;
-    rdfs:label "Isembard"@en .
-
-ex:Isembold a dbo:FictionalCharacter ;
-    rdfs:label "Isembold"@en .
-
-ex:Isengar a dbo:FictionalCharacter ;
-    rdfs:label "Isengar"@en .
-
-ex:Isengrim_III a dbo:FictionalCharacter ;
-    rdfs:label "Isengrim III"@en .
-
-ex:Isildur a dbo:FictionalCharacter ;
-    rdfs:label "Isildur"@en .
-
-ex:Isumbras_IV a dbo:FictionalCharacter ;
-    rdfs:label "Isumbras IV"@en .
-
-ex:Ivriniel a dbo:FictionalCharacter ;
-    rdfs:label "Ivriniel"@en .
-
-ex:Lamedon a dbo:Place ;
-    rdfs:label "Lamedon"@en .
-
-ex:Lothlórien a dbo:Place ;
-    rdfs:label "Lothlórien"@en .
-
-ex:Lothíriel a dbo:FictionalCharacter ;
-    rdfs:label "Lothíriel"@en .
-
-ex:Malvegil a dbo:FictionalCharacter ;
-    rdfs:label "Malvegil"@en .
-
-ex:Marmadoc_Brandybuck a dbo:FictionalCharacter ;
-    rdfs:label "Marmadoc Brandybuck"@en .
-
-ex:May a dbo:FictionalCharacter ;
-    rdfs:label "May"@en .
-
-ex:Mirabella a dbo:FictionalCharacter ;
-    rdfs:label "Mirabella"@en .
-
-ex:Narmacil a dbo:FictionalCharacter ;
-    rdfs:label "Narmacil"@en .
-
-ex:Near_the_Harad_Road a dbo:Place ;
-    rdfs:label "Near the Harad Road"@en .
-
-ex:Nimrodel_betrothed a dbo:FictionalCharacter ;
-    rdfs:label "Nimrodel (betrothed)"@en .
-
-ex:Old_Took a dbo:FictionalCharacter ;
-    rdfs:label "Old Took"@en .
-
-ex:Ornendil a dbo:FictionalCharacter ;
-    rdfs:label "Ornendil"@en .
-
-ex:Ostoher a dbo:FictionalCharacter ;
-    rdfs:label "Ostoher"@en .
-
-ex:Paladin_and_Esmeralda a dbo:FictionalCharacter ;
-    rdfs:label "Paladin and Esmeralda"@en .
-
-ex:Ponto_Baggins a dbo:FictionalCharacter ;
-    rdfs:label "Ponto Baggins"@en .
-
-ex:Primula a dbo:FictionalCharacter ;
-    rdfs:label "Primula"@en .
-
-ex:Probably_an_ancestor_of_Imrazôrref_nameCirion a dbo:FictionalCharacter ;
-    rdfs:label "Probably an ancestor of Imrazôr<ref name=\"Cirion\"/>"@en .
-
-ex:Reginard_Took a dbo:FictionalCharacter ;
-    rdfs:label "Reginard Took"@en .
-
-ex:RivendellbrGondorbrArnorbrRohanbrRhûn_and_Harad a dbo:Place ;
-    rdfs:label "Rivendell<br/>Gondor<br/>Arnor<br/>Rohan<br/>Rhûn and Harad"@en .
-
-ex:Rohan a dbo:Place ;
-    rdfs:label "Rohan"@en .
-
-ex:Rohir a dbo:EthnicGroup ;
-    rdfs:label "Rohir"@en .
-
-ex:Roper_family a dbo:Family ;
-    rdfs:label "Roper family"@en .
-
-ex:Rorimac a dbo:FictionalCharacter ;
-    rdfs:label "Rorimac"@en .
-
-ex:Ruby a dbo:FictionalCharacter ;
-    rdfs:label "Ruby"@en .
-
-ex:Rudibert a dbo:FictionalCharacter ;
-    rdfs:label "Rudibert"@en .
-
-ex:Rudibert_Bolger a dbo:FictionalCharacter ;
-    rdfs:label "Rudibert Bolger"@en .
-
-ex:Rudibert_Bolger_and_Amethyst_Hornblower a dbo:FictionalCharacter ;
-    rdfs:label "Rudibert Bolger and Amethyst Hornblower"@en .
-
-ex:Rudigar a dbo:FictionalCharacter ;
-    rdfs:label "Rudigar"@en .
-
-ex:Rudolph a dbo:FictionalCharacter ;
-    rdfs:label "Rudolph"@en .
-
-ex:Saradas a dbo:FictionalCharacter ;
-    rdfs:label "Saradas"@en .
-
-ex:Sinda a dbo:EthnicGroup ;
-    rdfs:label "Sinda"@en .
-
-ex:Tarcil a dbo:FictionalCharacter ;
-    rdfs:label "Tarcil"@en .
-
-ex:Telumehtar a dbo:FictionalCharacter ;
-    rdfs:label "Telumehtar"@en .
-
-ex:The_Shire a dbo:Place ;
-    rdfs:label "The Shire"@en .
-
-ex:The_YalebrBudgeford a dbo:Place ;
-    rdfs:label "The Yale<br/>Budgeford"@en .
-
-ex:Three_unnamed_daughters a dbo:FictionalCharacter ;
-    rdfs:label "Three unnamed daughters"@en .
-
-ex:Tookland a dbo:Place ;
-    rdfs:label "Tookland"@en .
-
-ex:Umbar a dbo:Place ;
-    rdfs:label "Umbar"@en .
-
-ex:Valandil a dbo:FictionalCharacter ;
-    rdfs:label "Valandil"@en .
-
-ex:at_least_one_other a dbo:FictionalCharacter ;
-    rdfs:label "at least one other"@en .
-
-ex:two_unnamed_brothers a dbo:FictionalCharacter ;
-    rdfs:label "two unnamed brothers"@en .
-
-ex:unknown_great-grandson_of_Castamir a dbo:FictionalCharacter ;
-    rdfs:label "''unknown''; great-grandson of Castamir"@en .
-
-ex:Angelimir a dbo:FictionalCharacter ;
-    rdfs:label "Angelimir"@de,
-        "Angelimir"@en,
-        "Angelimir"@fi,
-        "encyclo:personnages:hommes:3a:dunedain:gondoriens:angelimir"@fr ;
-    dbo:ethnicGroup ex:Gondorian ;
-    dbo:location ex:Dol_Amroth,
-        ex:Gondor ;
-    owl:sameAs <http://dbpedia.org/resource/Angelimir> ;
-    ex:age "111" ;
-    ex:birth "{{TA|2866}}" ;
-    ex:children ex:Adrahil ;
-    ex:death "{{TA|2977}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Dol Amroth" ;
-    ex:language "Westron" ;
-    ex:name "Angelimir" ;
-    ex:parentage ex:Aglahad ;
-    ex:rule "{{TA|2932}} - {{TA|2977|n}} (45 years)" ;
-    ex:titles "Prince of Dol Amroth" .
-
-ex:Araglas a dbo:FictionalCharacter ;
-    rdfs:label "Araglas"@de,
-        "Araglas"@en,
-        "Araglas"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/araglas"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Araglas> ;
-    ex:age "159" ;
-    ex:birth "{{TA|2296}}" ;
-    ex:children ex:Arahad_I ;
-    ex:death "{{TA|2455}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Araglas" ;
-    ex:parentage ex:Aragorn_I ;
-    ex:rule "{{TA|2327}} - {{TA|2455|n}}" ;
-    ex:titles "Chieftain of the Dúnedain" .
-
-ex:Aragorn_I a dbo:FictionalCharacter ;
-    rdfs:label "Aragorn I."@de,
-        "Aragorn I"@en,
-        "Aragorn I"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/aragorn ier"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Aragorn_I> ;
-    ex:age "100" ;
-    ex:birth "{{TA|2227}}" ;
-    ex:children ex:Araglas ;
-    ex:death "{{TA|2327}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Aragorn I" ;
-    ex:parentage ex:Aravir ;
-    ex:rule "{{TA|2319}} - {{TA|2327|n}}" ;
-    ex:titles "Chieftain of the Dúnedain" .
-
-ex:Aragost a dbo:FictionalCharacter ;
-    rdfs:label "Aragost"@de,
-        "Aragost"@en,
-        "Aragost"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/aragost"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Aragost> ;
-    ex:age "157" ;
-    ex:birth "{{TA|2431}}" ;
-    ex:children ex:Aravorn ;
-    ex:death "{{TA|2588}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Aragost" ;
-    ex:parentage ex:Arahad_I ;
-    ex:rule "{{TA|2523}} - {{TA|2588|n}}" ;
-    ex:titles "Chieftain of the Dúnedain" .
-
-ex:Arahad_I a dbo:FictionalCharacter ;
-    rdfs:label "Arahad I."@de,
-        "Arahad I"@en,
-        "Arahad I"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/arahad ier"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Arahad_I> ;
-    ex:age "158" ;
-    ex:birth "{{TA|2365}}" ;
-    ex:children ex:Aragost ;
-    ex:death "{{TA|2523}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Arahad I" ;
-    ex:parentage ex:Araglas ;
-    ex:rule "{{TA|2455}} - {{TA|2523|n}}" ;
-    ex:titles "Chieftain of the Dúnedain" .
-
-ex:Arahad_II a dbo:FictionalCharacter ;
-    rdfs:label "Arahad II."@de,
-        "Arahad II"@en,
-        "Arahad II"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/arahad ii"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Arahad_II> ;
-    ex:age "156" ;
-    ex:birth "{{TA|2563}}" ;
-    ex:children ex:Arassuil ;
-    ex:death "{{TA|2719}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Arahad II" ;
-    ex:parentage ex:Aravorn ;
-    ex:rule "{{TA|2654}} - {{TA|2719|n}}" ;
-    ex:titles "Chieftain of the Dúnedain" .
-
-ex:Arahael a dbo:FictionalCharacter ;
-    rdfs:label "Arahael"@de,
-        "Arahael"@en,
-        "Arahael"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/arahael"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Arahael> ;
-    ex:age "165" ;
-    ex:birth "{{TA|2012}}" ;
-    ex:children ex:Aranuir ;
-    ex:death "{{TA|2177}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Arahael" ;
-    ex:parentage ex:Aranarth ;
-    ex:rule "{{TA|2106}} - {{TA|2177|n}}" ;
-    ex:siblings ex:At_least_one_sibling ;
-    ex:titles "Chieftain of the Dúnedain" .
-
-ex:Aranuir a dbo:FictionalCharacter ;
-    rdfs:label "Aranuir"@de,
-        "Aranuir"@en,
-        "Aranuir"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/aranuir"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Aranuir> ;
-    ex:age "163" ;
-    ex:birth "{{TA|2084}}" ;
-    ex:children ex:Aravir ;
-    ex:death "{{TA|2247}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin and Westron" ;
-    ex:name "Aranuir" ;
-    ex:parentage ex:Arahael ;
-    ex:rule "{{TA|2177}} - {{TA|2247|n}}" ;
-    ex:titles "Chieftain of the Dúnedain" .
-
-ex:Arassuil a dbo:FictionalCharacter ;
-    rdfs:label "Arassuil"@de,
-        "Arassuil"@en,
-        "Arassuil"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/arassuil"@fr ;
-    dbo:ethnicGroup ex:Arnorian ;
-    dbo:location ex:Rivendell ;
-    owl:sameAs <http://dbpedia.org/resource/Arassuil> ;
-    ex:age "156" ;
-    ex:birth "{{TA|2628}}" ;
-    ex:children ex:Arathorn_I ;
-    ex:death "{{TA|2784}}" ;
-    ex:gender "Male" ;
-    ex:house "House of Isildur" ;
-    ex:language "Sindarin",
-        "Westron" ;
-    ex:name "Arassuil" ;
-    ex:parentage ex:Arahad_II ;
-    ex:rule "{{TA|2719}} - {{TA|2784|n}}" ;
-    ex:titles "Chieftain of the Dúnedain" .
-
 ex:Aravir a dbo:FictionalCharacter ;
-    rdfs:label "Aravir"@de,
-        "Aravir"@en,
-        "Aravir"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/aravir"@fr ;
+    rdfs:label "Aravir"@en ;
     dbo:ethnicGroup ex:Arnorian ;
     dbo:location ex:Rivendell ;
     owl:sameAs <http://dbpedia.org/resource/Aravir> ;
@@ -1357,6 +1315,8 @@ ex:Aravir a dbo:FictionalCharacter ;
     ex:children ex:Aragorn_I ;
     ex:death "{{TA|2319}}" ;
     ex:gender "Male" ;
+    ex:hasChild ex:Aragorn_I ;
+    ex:hasParent ex:Aranuir ;
     ex:house "House of Isildur" ;
     ex:language "Sindarin",
         "Westron" ;
@@ -1366,10 +1326,7 @@ ex:Aravir a dbo:FictionalCharacter ;
     ex:titles "Chieftain of the Dúnedain" .
 
 ex:Aravorn a dbo:FictionalCharacter ;
-    rdfs:label "Aravorn"@de,
-        "Aravorn"@en,
-        "Aravorn"@fi,
-        "encyclo/personnages/hommes/3a/dunedain/dunedain du nord/aravorn"@fr ;
+    rdfs:label "Aravorn"@en ;
     dbo:ethnicGroup ex:Arnorian ;
     dbo:location ex:Rivendell ;
     owl:sameAs <http://dbpedia.org/resource/Aravorn> ;
@@ -1378,6 +1335,8 @@ ex:Aravorn a dbo:FictionalCharacter ;
     ex:children ex:Arahad_II ;
     ex:death "{{TA|2654}}" ;
     ex:gender "Male" ;
+    ex:hasChild ex:Arahad_II ;
+    ex:hasParent ex:Aragost ;
     ex:house "House of Isildur" ;
     ex:language "Sindarin",
         "Westron" ;
@@ -1386,38 +1345,23 @@ ex:Aravorn a dbo:FictionalCharacter ;
     ex:rule "{{TA|2588}} - {{TA|2654|n}}" ;
     ex:titles "Chieftain of the Dúnedain" .
 
-ex:Arveleg_I a dbo:FictionalCharacter ;
-    rdfs:label "Arveleg I"@en .
-
-ex:Buckland a dbo:Place ;
-    rdfs:label "Buckland"@en .
-
-ex:Eldacar a dbo:FictionalCharacter ;
-    rdfs:label "Eldacar"@en .
-
-ex:Elphir a dbo:FictionalCharacter ;
-    rdfs:label "Elphir"@en .
-
-ex:Gundahar_Bolger_and_Dina_Diggle a dbo:FictionalCharacter ;
-    rdfs:label "Gundahar Bolger and Dina Diggle"@en .
-
-ex:Hornblower a dbo:Family ;
-    rdfs:label "Hornblower"@en .
-
-ex:Imrahil a dbo:FictionalCharacter ;
-    rdfs:label "Imrahil"@en .
-
-ex:Tighfield a dbo:Place ;
-    rdfs:label "Tighfield"@en .
-
-ex:Took a dbo:Family ;
-    rdfs:label "Took"@en .
-
-ex:Bolger a dbo:Family ;
-    rdfs:label "Bolger"@en .
-
-ex:Budgeford a dbo:Place ;
-    rdfs:label "Budgeford"@en .
+ex:Adrahil a dbo:FictionalCharacter ;
+    rdfs:label "Adrahil"@en ;
+    dbo:ethnicGroup ex:Gondorian ;
+    owl:sameAs <http://dbpedia.org/resource/Adrahil> ;
+    ex:age "93" ;
+    ex:birth "{{TA|2917}}" ;
+    ex:children ex:Finduilas,
+        ex:Imrahil,
+        ex:Ivriniel ;
+    ex:death "{{TA|3010}}" ;
+    ex:gender "Male" ;
+    ex:hasParent ex:Angelimir ;
+    ex:house "House of Dol Amroth" ;
+    ex:name "Adrahil" ;
+    ex:parentage ex:Angelimir ;
+    ex:rule "{{TA|2977}} - {{TA|3010|n}} (33 years)" ;
+    ex:titles "Prince of Dol Amroth" .
 
 ex:Arthedain a dbo:Place ;
     rdfs:label "Arthedain"@en .
@@ -1430,6 +1374,32 @@ ex:Gondorian a dbo:EthnicGroup ;
 
 ex:Rivendell a dbo:Place ;
     rdfs:label "Rivendell"@en .
+
+ex:Adamanta_Chubb a dbo:FictionalCharacter ;
+    rdfs:label "Adamanta Chubb"@en ;
+    dbo:ethnicGroup ex:Hobbit ;
+    dbo:family ex:Chubb ;
+    dbo:location ex:Tookland ;
+    dbo:spouse ex:Old_Took ;
+    owl:sameAs <http://dbpedia.org/resource/Adamanta_Chubb> ;
+    ex:birth "Around 1190" ;
+    ex:caption "Adamanta Chubb - Detail by Miriam Ellis" ;
+    ex:children ex:Belladonna,
+        ex:Donnamira,
+        ex:Hildibrand,
+        ex:Hildifons,
+        ex:Hildigard,
+        ex:Hildigrim,
+        ex:Isembard,
+        ex:Isembold,
+        ex:Isengar,
+        ex:Isengrim_III,
+        ex:Isumbras_IV,
+        ex:Mirabella ;
+    ex:death "After 1262" ;
+    ex:gender "Female" ;
+    ex:image "Miriam Ellis - Adamanta Chubb.jpg" ;
+    ex:name "Adamanta Chubb" .
 
 ex:Hobbit a dbo:EthnicGroup ;
     rdfs:label "Hobbit"@en .

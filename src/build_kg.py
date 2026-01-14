@@ -32,23 +32,10 @@ g.bind("owl", OWL)
 # -----------------------
 def extract_infobox(wikitext):
     wikicode = mwparserfromhell.parse(wikitext)
-
-    print("\nTEMPLATES TROUVÉS DANS LA PAGE :")
-    for tpl in wikicode.filter_templates():
-        print("  -", repr(str(tpl.name)))
-
     for tpl in wikicode.filter_templates():
         tpl_name = tpl.name.strip().lower()
         if "infobox" in tpl_name:
-            print("INFOBOX DÉTECTÉE :", repr(str(tpl.name)))
-            infobox = {
-                param.name.strip(): str(param.value).strip()
-                for param in tpl.params
-            }
-            print("CONTENU INFOBOX BRUT :", infobox)
-            return infobox
-
-    print("AUCUNE INFOBOX DÉTECTÉE")
+            return {param.name.strip(): str(param.value).strip() for param in tpl.params}
     return {}
 
 def remove_refs(text):
@@ -56,8 +43,7 @@ def remove_refs(text):
 
 def clean_wikilinks(text):
     def repl(match):
-        content = match.group(1)
-        return content.split("|")[-1]
+        return match.group(1).split("|")[-1]
     return re.sub(r"\[\[(.*?)\]\]", repl, text)
 
 def clean_dates(text):
@@ -82,6 +68,7 @@ def clean_value(value):
 # Utilitaires RDF
 # -----------------------
 def normalize_name(name):
+    """Nettoie une valeur pour une URI valide"""
     name = clean_wikilinks(name)
     name = re.sub(r"[^\w\s-]", "", name)
     return name.strip().replace(" ", "_")
@@ -95,35 +82,10 @@ def page_exists(site, title):
     except:
         return False
 
-def add_multilingual_labels(graph, entity_uri, page):
-    """
-    Ajoute rdfs:label en anglais + toutes les langues disponibles
-    via les interlanguage links MediaWiki.
-    """
-
-    # Label anglais (toujours présent)
-    graph.add((
-        entity_uri,
-        RDFS.label,
-        Literal(page.name, lang="en")
-    ))
-
-    # Labels multilingues si disponibles
-    try:
-        for lang, title in page.langlinks():
-            graph.add((
-                entity_uri,
-                RDFS.label,
-                Literal(title, lang=lang)
-            ))
-    except Exception as e:
-        # Si le wiki ne fournit pas de langlinks
-        pass
-
-# Propriétés relationnelles
-LINK_PROPERTIES = {
-    "children", "parentage", "family", "location", "siblings", "spouse", "people"
-}
+# -----------------------
+# Propriétés et types
+# -----------------------
+LINK_PROPERTIES = {"children", "parentage", "family", "location", "siblings", "spouse", "people"}
 
 PROPERTY_MAPPING = {
     "family": DBO.family,
@@ -152,60 +114,57 @@ for i, page in enumerate(category):
     if i >= MAX_PAGES:
         break
 
-    print("\n" + "=" * 70)
-    print(f"PAGE : {page.name}")
-
     try:
         text = page.text()
-    except Exception as e:
-        print(f"ERREUR RÉCUPÉRATION PAGE : {e}")
+    except Exception:
         time.sleep(5)
         continue
 
     infobox = extract_infobox(text)
-
     if not infobox:
-        print(f"INFOBOX VIDE POUR {page.name}")
+        continue
 
-    # Création entité
     char_uri = name_to_uri(page.name)
-    print("URI PERSONNAGE :", char_uri)
 
+    # Type et label principal
     g.add((char_uri, RDF.type, DBO.FictionalCharacter))
-    add_multilingual_labels(g, char_uri, page)
+    g.add((char_uri, RDFS.label, Literal(infobox.get("name", page.name), lang="en")))
 
-    dbpedia_uri = URIRef("http://dbpedia.org/resource/" + normalize_name(page.name))
-    g.add((char_uri, OWL.sameAs, dbpedia_uri))
+    # Lien OWL sameAs DBpedia
+    g.add((char_uri, OWL.sameAs, URIRef("http://dbpedia.org/resource/" + normalize_name(page.name))))
 
-    if infobox:
-        for key, value in infobox.items():
-            print(f"\nCLÉ INFOBOX : {repr(key)}")
-            print(f"  VALEUR BRUTE : {repr(value)}")
+    # Relations
+    for key, value in infobox.items():
+        cleaned = clean_value(value)
+        if not cleaned:
+            continue
 
-            cleaned = clean_value(value)
-            print(f"  VALEUR NETTOYÉE : {repr(cleaned)}")
+        prop_uri = PROPERTY_MAPPING.get(key, EX[key.replace(" ", "_")])
+        values = cleaned if isinstance(cleaned, list) else [cleaned]
 
-            if not cleaned:
-                print("   IGNORÉE (vide après nettoyage)")
-                continue
+        for v in values:
+            if key in LINK_PROPERTIES:
+                target_uri = name_to_uri(v)
+                g.add((char_uri, prop_uri, target_uri))
 
-            prop_uri = PROPERTY_MAPPING.get(key, EX[key.replace(" ", "_")])
-            values = cleaned if isinstance(cleaned, list) else [cleaned]
+                # Créer la ressource liée si absente
+                if (target_uri, RDF.type, None) not in g:
+                    rdf_type = ENTITY_TYPES.get(key, EX.Resource)
+                    g.add((target_uri, RDF.type, rdf_type))
+                    g.add((target_uri, RDFS.label, Literal(v, lang="en")))
 
-            for v in values:
-                if key in LINK_PROPERTIES:
-                    target_uri = name_to_uri(v)
-                    g.add((char_uri, prop_uri, target_uri))
-
-                    if (target_uri, RDF.type, None) not in g:
-                        rdf_type = ENTITY_TYPES.get(key, EX.Resource)
-                        g.add((target_uri, RDF.type, rdf_type))
-                        g.add((target_uri, RDFS.label, Literal(v, lang="en")))
-                else:
-                    g.add((char_uri, prop_uri, Literal(v)))
+                # Relations inverses
+                if key == "children":
+                    g.add((target_uri, EX.hasParent, char_uri))
+                elif key == "parentage":
+                    g.add((target_uri, EX.hasChild, char_uri))
+                elif key == "spouse":
+                    g.add((target_uri, EX.hasSpouse, char_uri))
+            else:
+                g.add((char_uri, prop_uri, Literal(v)))
 
     print(f"FIN PAGE {page.name} — Triples actuels : {len(g)}")
-    time.sleep(3)
+    time.sleep(1)
 
 # -----------------------
 # Sauvegarde
@@ -215,4 +174,4 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 os.makedirs(DATA_DIR, exist_ok=True)
 
 g.serialize(os.path.join(DATA_DIR, "kg.ttl"), format="turtle")
-print("\nkg.ttl généré avec DEBUG COMPLET")
+print("kg.ttl généré avec entités liées propres !")
