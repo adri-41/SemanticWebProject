@@ -95,6 +95,31 @@ def page_exists(site, title):
     except:
         return False
 
+def add_multilingual_labels(graph, entity_uri, page):
+    """
+    Ajoute rdfs:label en anglais + toutes les langues disponibles
+    via les interlanguage links MediaWiki.
+    """
+
+    # Label anglais (toujours présent)
+    graph.add((
+        entity_uri,
+        RDFS.label,
+        Literal(page.name, lang="en")
+    ))
+
+    # Labels multilingues si disponibles
+    try:
+        for lang, title in page.langlinks():
+            graph.add((
+                entity_uri,
+                RDFS.label,
+                Literal(title, lang=lang)
+            ))
+    except Exception as e:
+        # Si le wiki ne fournit pas de langlinks
+        pass
+
 # Propriétés relationnelles
 LINK_PROPERTIES = {
     "children", "parentage", "family", "location", "siblings", "spouse", "people"
@@ -147,7 +172,7 @@ for i, page in enumerate(category):
     print("URI PERSONNAGE :", char_uri)
 
     g.add((char_uri, RDF.type, DBO.FictionalCharacter))
-    g.add((char_uri, RDFS.label, Literal(page.name, lang="en")))
+    add_multilingual_labels(g, char_uri, page)
 
     dbpedia_uri = URIRef("http://dbpedia.org/resource/" + normalize_name(page.name))
     g.add((char_uri, OWL.sameAs, dbpedia_uri))
@@ -175,7 +200,7 @@ for i, page in enumerate(category):
                     if (target_uri, RDF.type, None) not in g:
                         rdf_type = ENTITY_TYPES.get(key, EX.Resource)
                         g.add((target_uri, RDF.type, rdf_type))
-                        g.add((target_uri, RDFS.label, Literal(v)))
+                        g.add((target_uri, RDFS.label, Literal(v, lang="en")))
                 else:
                     g.add((char_uri, prop_uri, Literal(v)))
 
